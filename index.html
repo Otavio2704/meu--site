@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Otávio Guedes - Portfólio</title>
+    <link rel="icon" type="image/jpeg" href="icon.jpg" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header id="navbar">
+        <nav class="nav-container animate-on-scroll slide-in-top">
+            <div class="logo">
+                Otávio<span class="logo-accent">-dev</span>
+            </div>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+
+            <div class="nav-social" aria-hidden="false">
+                <a href="https://github.com/Otavio2704" aria-label="GitHub" target="_blank" rel="noopener" class="social-icon">
+                    <!-- GitHub icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+
+                <a href="https://www.linkedin.com/in/otavio-backend2007" aria-label="LinkedIn" target="_blank" rel="noopener" class="social-icon">
+                    <!-- LinkedIn icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="hamburger" id="hamburger" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <p class="greeting">Olá, eu sou <strong>Otávio Guedes</strong> 👋</p>
+                        <h1 class="hero-title">
+                            Otávio Guedes - Eng.Software/Desenvolvedor Back-end Java
+                        </h1>
+                        <p class="hero-quote">Foco em back-end com Java, Spring Boot, bancos relacionais e soluções em cloud.</p>
+
+                        <div class="hero-buttons">
+                            <a href="#" class="btn glow-genz-button" role="button">Baixar CV</a>
+                            <a href="#projects" class="btn outline-button">Ver projetos</a>
+                        </div>
+
+                        <div class="hero-social small">
+                            <a href="https://github.com/Otavio2704" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+                            <span>•</span>
+                            <a href="https://www.linkedin.com/in/otavio-backend2007" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="avatar-container" aria-hidden="false">
+                            <!-- Placeholder da imagem; você alterará depois -->
+                            <div class="sun-core">
+                                <img src="img.jpg" alt="Avatar Otávio" />
+                            </div>
+
+                            <!-- Ícones das tecnologias (ilustrativos) -->
+                            <div class="orbit-icons">
+                                <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" title="Java" />
+                                <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" title="Spring" />
+                                <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" title="PostgreSQL" />
+                                <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python" />
+                                <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" title="Docker" />
+                                <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Sobre</h2>
+                <div class="about-content">
+                    <div class="about-text slide-in-left">
+                        <p>Sou estudante de Engenharia de Software com foco em desenvolvimento Back-end. Trabalho com Java e Spring Boot para construir APIs escaláveis, faço modelagem de banco de dados (PostgreSQL), escrevo testes com JUnit e Mockito e tenho interesse em IA generativa e cloud (AWS, Docker).</p>
+
+                        <div class="skills">
+                            <h3>Tecnologias & Ferramentas</h3>
+                            <div class="skills-grid">
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">Spring Boot</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                                <span class="skill-tag">JUnit</span>
+                                <span class="skill-tag">Mockito</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Git / GitHub</span>
+                                <span class="skill-tag">HTML / CSS / JS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-visual slide-in-right">
+                        <div class="code-animation" aria-hidden="true">
+                            <div class="code-line">const dev = {</div>
+                            <div class="code-line indent">nome: 'Otávio Guedes',</div>
+                            <div class="code-line indent">cargo: 'Eng.Software / Desenvolvedor Back-end Java',</div>
+                            <div class="code-line indent">foco: 'APIs, testes, modelagem de dados e cloud'</div>
+                            <div class="code-line">};</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETOS -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projetos</h2>
+                <p class="section-subtitle">Seleção de projetos no meu GitHub — códigos e README disponíveis nos links.</p>
+
+                <div class="projects-grid slide-in-up">
+                    <!-- Simulador de Bets -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="cover_simulador.png" alt="Simulador de BETS" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Simulador de Bets</h3>
+                            <p>Simulador de apostas com lógica de cálculos e simulações — projeto em Java com foco em lógica de negócios.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Flask</span>
+                                <span>HTML/CSS</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Otavio2704/SimuladorDeBETS" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Roguelike Java -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="cover_roguelike.png" alt="Roguelike Java" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Roguelike Java</h3>
+                            <p>Jogo estilo roguelike desenvolvido em Java — estudo de OO, estruturas e loops de jogo.</p>
+                            <div class="project-tech">
+                                <span>Java</span>
+                                <span>POO</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Otavio2704/Roguelike-Java" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AcademiaGYM--APIrest -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="cover_academiagym.png" alt="AcademiaGYM - API REST" />
+                        </div>
+                        <div class="project-content">
+                            <h3>AcademiaGYM — API REST</h3>
+                            <p>API REST para gerenciamento de academia — endpoints para alunos, planos e pagamentos (Spring Boot).</p>
+                            <div class="project-tech">
+                                <span>Spring Boot</span>
+                                <span>REST API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Otavio2704/AcademiaGYM--APIrest" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sistema E-commerce - Modelagem de Banco -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="cover_ecommerce_db.png" alt="Modelagem Banco E-commerce" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Sistema E-commerce — Modelagem de Banco</h3>
+                            <p>Modelagem e scripts SQL para um e-commerce (PostgreSQL) — foco em normalização e integridade referencial.</p>
+                            <div class="project-tech">
+                                <span>PostgreSQL</span>
+                                <span>Modelagem ER</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Otavio2704/BancoDeDados--Ecommerce--PostgreSQL" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gerenciador de times e jogadores -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="cover_gerenciador_times.png" alt="Gerenciador de Times" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Gerenciador de Times e Jogadores</h3>
+                            <p>Sistema para cadastro e gerenciamento de times e jogadores — CRUD e regras de negócio.</p>
+                            <div class="project-tech">
+                                <span>Java</span>
+                                <span>CRUD</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Otavio2704/Gerenciador-de-Times-e-Jogadores" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Otavio's Bank -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="cover_bank.png" alt="Otavio's Bank" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Otavio's Bank — Sistema Bancário (Java POO)</h3>
+                            <p>Sistema bancário em Java orientado a objetos: contas, operações e regras de negócio — projeto didático de POO.</p>
+                            <div class="project-tech">
+                                <span>Java</span>
+                                <span>POO</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Otavio2704/sistema-bancario-java-poo" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Contato</h2>
+                <div class="contact-content">
+                    <div class="contact-info slide-in-left">
+                        <p>Estou aberto a oportunidades e colaborações. Pode me encontrar no GitHub ou LinkedIn — ou enviar uma mensagem por aqui.</p>
+
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                <span>GitHub: <a href="https://github.com/Otavio2704" target="_blank" rel="noopener">github.com/Otavio2704</a></span>
+                            </div>
+
+                            <div class="contact-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065z"/>
+                                </svg>
+                                <span>LinkedIn: <a href="https://www.linkedin.com/in/otavio-backend2007" target="_blank" rel="noopener">/in/otavio-backend2007</a></span>
+                            </div>
+                        </div>
+
+                        <div class="social-links small">
+                            <a href="https://github.com/Otavio2704" target="_blank" rel="noopener">GitHub</a>
+                            <span>•</span>
+                            <a href="https://www.linkedin.com/in/otavio-backend2007" target="_blank" rel="noopener">LinkedIn</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form slide-in-right">
+                        <form id="contact-form" aria-label="Formulário de contato">
+                            <div class="form-group">
+                                <input type="text" placeholder="Seu nome" required name="user_name" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Seu e-mail" required name="user_email" />
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Mensagem" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="glow-genz-button">Enviar mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            // Substitua YOUR_PUBLIC_KEY pela sua chave pública do EmailJS quando for usar.
+            if (window.emailjs) {
+                try {
+                    emailjs.init("YOUR_PUBLIC_KEY");
+                } catch (e) {
+                    console.warn("EmailJS init falhou:", e);
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
