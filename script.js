@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSunPhotoModal();
     initSmoothScroll();
     initSectionAnimations();
+    initContactForm();
 });
 
 function initNavbar() {
@@ -13,26 +14,32 @@ function initNavbar() {
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
+    // Toggle mobile menu
     hamburger.addEventListener('click', () => {
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !isExpanded);
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
 
+    // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
+            hamburger.setAttribute('aria-expanded', 'false');
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         });
     });
 
+    // Active section indicator
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                
+                // Remove active class from all links
                 navLinks.forEach(link => link.classList.remove('active'));
                 
-                
+                // Add active class to current section link
                 const activeLink = document.querySelector(`a[href="#${entry.target.id}"]`);
                 if (activeLink) {
                     activeLink.classList.add('active');
@@ -49,6 +56,10 @@ function initNavbar() {
 
 function initTypingEffect() {
     const typingText = document.getElementById('typing-text');
+    
+    // Se o elemento não existir, retorna (não é mais usado no HTML atual)
+    if (!typingText) return;
+    
     const phrases = [
         'Web Developer',
         'Front-End', 
@@ -95,8 +106,6 @@ function initTypingEffect() {
 
     typeEffect();
 }
-
-
 
 function initOrbitAnimations() {
     const planets = document.querySelectorAll('.random-orbit');
@@ -217,43 +226,30 @@ function initSectionAnimations() {
     });
 
     elements.forEach(element => elementObserver.observe(element));
-
-    (function() {
-  emailjs.init("sm08AnEPv9i2Vfjzu"); // ← ضع المفتاح العام من EmailJS
-})();
-
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  emailjs.sendForm("service_jtnlzjh", "template_1g0ebr8", this)
-    .then(() => {
-      alert("Dn");
-    }, (error) => {
-      alert("Eror " + JSON.stringify(error));
-    });
-});
-
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Contact Form
+function initContactForm() {
     const form = document.getElementById('contact-form');
 
-    form.addEventListener('submit', function (e) {
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
 
+        // AJUSTE: Adicione os IDs corretos do seu EmailJS
         emailjs.sendForm(
-            "service_jtnlzjh",   // Service ID من EmailJS
-            "template_1g0ebr8",  // Template ID من EmailJS
+            "service_jtnlzjh",   // Service ID do EmailJS
+            "template_1g0ebr8",  // Template ID do EmailJS
             this
         ).then(
             () => {
-                alert("✅ Message sent successfully!");
+                alert("✅ Mensagem enviada com sucesso!");
                 form.reset();
             },
             (error) => {
-                alert("❌ Failed to send message: " + error.text);
+                alert("❌ Falha ao enviar mensagem: " + error.text);
+                console.error("Erro EmailJS:", error);
             }
         );
     });
-});
+}
