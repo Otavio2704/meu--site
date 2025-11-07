@@ -1,14 +1,15 @@
 :root {
-  --bg-1: #570000;
+  --bg-1: #2a2000;
   --bg-2: #000000;
-  --text: #FFE6E6;
-  --muted: #D89C9C;
-  --accent: #FF3838;
-  --accent-2: #FF5C5C;
-  --card: #3b0202;
+  --text: #fff9e6;
+  --muted: #d9c873;
+  --accent: #ffd700;
+  --accent-2: #ffea70;
+  --card: #3b2f00;
   --card-2: #ffffff;
-  --shadow: 0 10px 30px rgba(255, 56, 56, 0.15);
+  --shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
 }
+
 
 * {
   margin: 0;
@@ -272,7 +273,7 @@ body::after {
   padding: 10px;
   border-radius: 50%;
   transition: all 0.3s ease;
-  background: rgba(14, 33, 64, 0.5);
+  background: rgba(64, 62, 14, 0.5);
   backdrop-filter: blur(5px);
 }
 
@@ -355,9 +356,9 @@ body::after {
 }
 
 .orbit-icon:hover {
-  background: rgba(255, 56, 56, 0.4);
+  background: rgba(255, 252, 56, 0.4);
   transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(255, 56, 56, 0.5);
+  box-shadow: 0 0 10px rgba(255, 235, 56, 0.5);
 }
 
 @keyframes sunGlow {
@@ -469,7 +470,7 @@ body::after {
 .glow-genz-button:hover {
   color: white;
   border-color: var(--accent-2);
-  box-shadow: 0 0 25px rgba(255, 56, 56, 1), 0 0 50px rgba(255, 92, 92, 0.8);
+  box-shadow: 0 0 25px rgb(255, 252, 56), 0 0 50px rgba(255, 92, 92, 0.8);
   transform: scale(1.05);
 }
 
@@ -513,13 +514,13 @@ body::after {
     top: 70px;
     left: 0;
     width: 100%;
-    background: rgba(6, 21, 38, 0.95);
+    background: rgba(37, 38, 6, 0.95);
     backdrop-filter: blur(10px);
     flex-direction: column;
     padding: 20px;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    border-bottom: 1px solid rgba(56, 182, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 252, 56, 0.1);
   }
 
   .nav-menu.active {
@@ -745,12 +746,12 @@ body::after {
 }
 
 .skill-tag {
-  background: rgba(255, 56, 56, 0.1);
+  background: rgba(255, 252, 56, 0.1);
   color: var(--accent);
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 0.9rem;
-  border: 1px solid rgba(255, 56, 56, 0.3);
+  border: 1px solid rgba(255, 248, 56, 0.3);
   transition: all 0.3s ease;
 }
 
@@ -768,7 +769,7 @@ body::after {
 
 .code-animation {
   background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 56, 56, 0.3);
+  border: 1px solid rgba(255, 252, 56, 0.3);
   border-radius: 12px;
   padding: 30px;
   font-family: 'Courier New', monospace;
@@ -794,7 +795,7 @@ body::after {
 
 .project-card {
   background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 56, 56, 0.2);
+  border: 1px solid rgba(255, 235, 56, 0.2);
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -803,7 +804,7 @@ body::after {
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(255, 56, 56, 0.2);
+  box-shadow: 0 20px 40px rgba(255, 248, 56, 0.2);
   border-color: var(--accent);
 }
 
@@ -837,12 +838,12 @@ body::after {
 }
 
 .project-tech span {
-  background: rgba(255, 56, 56, 0.1);
+  background: rgba(255, 228, 56, 0.1);
   color: var(--accent);
   padding: 4px 12px;
   border-radius: 15px;
   font-size: 0.8rem;
-  border: 1px solid rgba(255, 56, 56, 0.3);
+  border: 1px solid rgba(255, 252, 56, 0.3);
 }
 
 .project-links {
@@ -910,18 +911,18 @@ body::after {
   padding: 12px;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 56, 56, 0.2);
+  border: 1px solid rgba(255, 255, 56, 0.2);
 }
 
 .social-link:hover {
   color: var(--accent);
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 56, 56, 0.3);
+  box-shadow: 0 0 20px rgba(255, 238, 56, 0.3);
 }
 
 .contact-form {
   background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 56, 56, 0.2);
+  border: 1px solid rgba(255, 252, 56, 0.2);
   border-radius: 12px;
   padding: 30px;
   backdrop-filter: blur(10px);
@@ -936,7 +937,7 @@ body::after {
   width: 100%;
   padding: 15px;
   background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 56, 56, 0.3);
+  border: 1px solid rgba(255, 238, 56, 0.3);
   border-radius: 8px;
   color: var(--text);
   font-family: inherit;
@@ -947,7 +948,7 @@ body::after {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(255, 56, 56, 0.3);
+  box-shadow: 0 0 10px rgba(255, 242, 56, 0.3);
 }
 
 .form-group input::placeholder,
