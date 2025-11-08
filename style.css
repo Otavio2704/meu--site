@@ -112,8 +112,8 @@ body::after {
 .section-subtitle {
   text-align: center;
   color: var(--muted);
-  margin-top: -40px;
-  margin-bottom: 40px;
+  margin-top: -20px;
+  margin-bottom: 50px;
   font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
@@ -680,7 +680,7 @@ body::after {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .project-card {
@@ -779,7 +779,7 @@ body::after {
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 40px;
   margin-top: 40px;
 }
 
@@ -788,6 +788,7 @@ body::after {
   margin-bottom: 30px;
   line-height: 1.8;
   font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  text-align: center;
 }
 
 .contact-details {
@@ -801,6 +802,7 @@ body::after {
   margin-bottom: 20px;
   color: var(--muted);
   font-size: clamp(0.9rem, 1.5vw, 1rem);
+  justify-content: center;
 }
 
 .contact-item svg {
@@ -828,6 +830,7 @@ body::after {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .social-links.small {
@@ -1094,6 +1097,7 @@ body::after {
 
   .projects-grid {
     gap: 20px;
+    margin-top: 20px;
   }
 
   .project-content {
