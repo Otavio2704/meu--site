@@ -112,10 +112,11 @@ body::after {
 .section-subtitle {
   text-align: center;
   color: var(--muted);
-  margin-top: -30px;
-  margin-bottom: 40px;
+  margin-top: -10px;
+  margin-bottom: 50px;
   font-size: clamp(0.9rem, 2vw, 1rem);
   padding: 0 15px;
+  line-height: 1,8;
 }
 
 /* NAVBAR */
@@ -1044,12 +1045,12 @@ body::after {
   }
 
     #projects .section-title {
-    margin-bottom: 55px; /* Mais espaço em mobile */
+    margin-bottom: 65px; /* Mais espaço em mobile */
   }
 
     #projects .section-subtitle {
-    margin-top: -25px;
-    line-height: 1.6; /* Melhora o espaçamento entre linhas */
+    margin-top: -15px;
+    line-height: 1.8; /* Melhora o espaçamento entre linhas */
   }
 }
 
@@ -1132,12 +1133,13 @@ body::after {
   }
 
   #projects .section-title {
-    margin-bottom: 60px; /* Ainda mais espaço em telas muito pequenas */
+    margin-bottom: 70px; /* Ainda mais espaço em telas muito pequenas */
   }
 
   #projects .section-subtitle {
-    margin-top: -30px;
-    padding: 0 20px; /* Mais padding nas laterais */
+    margin-top: -10px;
+    padding: 0 25px; /* Mais padding nas laterais */
+    line-height: 1.9;
   }
 }
 
