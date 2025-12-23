@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" id="html-root">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Portfólio de Otávio Guedes - Desenvolvedor Back-end Java especializado em Spring Boot, APIs REST e banco de dados PostgreSQL">
-    <meta name="keywords" content="Desenvolvedor Java, Spring Boot, Back-end, API REST, PostgreSQL, Engenheiro de Software">
+    <meta name="description" content="Portfólio de Otávio Guedes - Engenheiro de Software especializado em desenvolvimento Back-end com Java, Spring Boot, APIs REST, PostgreSQL e soluções em cloud (AWS)">
+    <meta name="keywords" content="Otávio Guedes, Desenvolvedor Java, Spring Boot, Back-end Developer, API REST, PostgreSQL, Engenheiro de Software, AWS, JUnit, Mockito, Maven">
     <meta name="author" content="Otávio Guedes">
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seudominio.com">
-    <meta property="og:title" content="Otávio Guedes - Desenvolvedor Back-end Java">
-    <meta property="og:description" content="Portfólio profissional de Engenheiro de Software com foco em Back-end Java, Spring Boot e APIs REST">
-    <meta property="og:image" content="https://seudominio.com/preview.jpg">
+    <meta property="og:url" content="https://otavio2007-backend.edgeone.app/">
+    <meta property="og:title" content="Otávio Guedes - Engenheiro de Software | Back-end Java Developer">
+    <meta property="og:description" content="Desenvolvedor Back-end especializado em Java, Spring Boot, APIs REST escaláveis, modelagem de banco de dados PostgreSQL e soluções em cloud. Confira meus projetos!">
+    <meta property="og:image" content="https://otavio2007-backend.edgeone.app/preview.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://seudominio.com">
-    <meta property="twitter:title" content="Otávio Guedes - Desenvolvedor Back-end Java">
-    <meta property="twitter:description" content="Portfólio profissional de Engenheiro de Software com foco em Back-end Java">
-    <meta property="twitter:image" content="https://seudominio.com/preview.jpg">
+    <meta property="twitter:url" content="https://otavio2007-backend.edgeone.app/">
+    <meta property="twitter:title" content="Otávio Guedes - Engenheiro de Software | Back-end Java Developer">
+    <meta property="twitter:description" content="Desenvolvedor Back-end especializado em Java, Spring Boot, APIs REST escaláveis e soluções em cloud.">
+    <meta property="twitter:image" content="https://otavio2007-backend.edgeone.app/preview.jpg">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://seudominio.com">
+    <link rel="canonical" href="https://otavio2007-backend.edgeone.app/">
     
-    <title>Otávio Guedes - Desenvolvedor Back-end Java | Portfólio</title>
+    <title>Otávio Guedes - Engenheiro de Software Back-end Java | Portfólio</title>
     <link rel="icon" type="image/jpeg" href="icon.jpg" />
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -36,24 +36,31 @@
             </div>
 
             <ul class="nav-menu" id="nav-menu" role="menubar">
-                <li role="none"><a href="#home" class="nav-link active" role="menuitem">Início</a></li>
-                <li role="none"><a href="#about" class="nav-link" role="menuitem">Sobre</a></li>
-                <li role="none"><a href="#projects" class="nav-link" role="menuitem">Projetos</a></li>
-                <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contato</a></li>
+                <li role="none"><a href="#home" class="nav-link active" role="menuitem" data-i18n="nav-home">Início</a></li>
+                <li role="none"><a href="#about" class="nav-link" role="menuitem" data-i18n="nav-about">Sobre</a></li>
+                <li role="none"><a href="#projects" class="nav-link" role="menuitem" data-i18n="nav-projects">Projetos</a></li>
+                <li role="none"><a href="#contact" class="nav-link" role="menuitem" data-i18n="nav-contact">Contato</a></li>
             </ul>
 
-            <div class="nav-social" aria-label="Links de redes sociais">
-                <a href="https://github.com/Otavio2704" aria-label="Visite meu perfil no GitHub" target="_blank" rel="noopener noreferrer" class="social-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                </a>
+            <div class="nav-actions">
+                <div class="nav-social" aria-label="Links de redes sociais">
+                    <a href="https://github.com/Otavio2704" aria-label="Visite meu perfil no GitHub" target="_blank" rel="noopener noreferrer" class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
 
-                <a href="https://www.linkedin.com/in/otavio-backend2007" aria-label="Visite meu perfil no LinkedIn" target="_blank" rel="noopener noreferrer" class="social-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/>
-                    </svg>
-                </a>
+                    <a href="https://www.linkedin.com/in/otavio-backend2007" aria-label="Visite meu perfil no LinkedIn" target="_blank" rel="noopener noreferrer" class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <button class="language-toggle" id="language-toggle" aria-label="Alternar idioma">
+                    <span class="lang-icon">🌐</span>
+                    <span class="lang-text">EN</span>
+                </button>
             </div>
 
             <button class="hamburger" id="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false">
@@ -70,15 +77,15 @@
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <p class="greeting">Olá, eu sou <strong>Otávio Guedes</strong> 👋</p>
-                        <h1 class="hero-title">
+                        <p class="greeting" data-i18n="greeting">Olá, eu sou <strong>Otávio Guedes</strong> 👋</p>
+                        <h1 class="hero-title" data-i18n="hero-title">
                             Eng.Software - Desenvolvedor Back-end
                         </h1>
-                        <p class="hero-quote">Foco em back-end com Java, Spring Boot, bancos relacionais e soluções em cloud.</p>
+                        <p class="hero-quote" data-i18n="hero-quote">Foco em back-end com Java, Spring Boot, bancos relacionais e soluções em cloud.</p>
 
                         <div class="hero-buttons">
-                            <a href="Otavio_Guedes_Curriculo.pdf" download class="btn glow-genz-button" role="button">Baixar CV</a>
-                            <a href="#projects" class="btn outline-button">Ver projetos</a>
+                            <a href="Otavio_Guedes_Curriculo.pdf" download class="btn glow-genz-button" role="button" id="cv-download" data-i18n="download-cv">Baixar CV</a>
+                            <a href="#projects" class="btn outline-button" data-i18n="view-projects">Ver projetos</a>
                         </div>
 
                         <div class="hero-social small">
@@ -123,20 +130,20 @@
         <!-- SOBRE -->
         <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title">Sobre</h2>
+                <h2 class="section-title" data-i18n="about-title">Sobre</h2>
                 <div class="about-content">
                     <div class="about-text slide-in-left">
-                        <p>Sou estudante de Engenharia de Software com foco em desenvolvimento Back-end. Trabalho com Java e Spring Boot para construir APIs escaláveis, faço modelagem de banco de dados (PostgreSQL), escrevo testes com JUnit e Mockito e tenho interesse em IA generativa e cloud (AWS, Docker).</p>
+                        <p data-i18n="about-text">Sou estudante de Engenharia de Software com foco em desenvolvimento Back-end. Trabalho com Java e Spring Boot para construir APIs escaláveis, faço modelagem de banco de dados (PostgreSQL), escrevo testes com JUnit e Mockito e tenho interesse em IA generativa e cloud (AWS).</p>
 
                         <div class="skills">
-                            <h3>Tecnologias & Ferramentas</h3>
+                            <h3 data-i18n="skills-title">Tecnologias & Ferramentas</h3>
                             <div class="skills-grid">
                                 <span class="skill-tag">Java</span>
                                 <span class="skill-tag">Spring Boot</span>
                                 <span class="skill-tag">PostgreSQL</span>
                                 <span class="skill-tag">JUnit</span>
                                 <span class="skill-tag">Mockito</span>
-                                <span class="skill-tag">Engenharia de prompts</span>
+                                <span class="skill-tag" data-i18n="skill-prompt-engineering">Engenharia de prompts</span>
                                 <span class="skill-tag">AWS</span>
                                 <span class="skill-tag">Maven</span>
                                 <span class="skill-tag">Git / GitHub</span>
@@ -148,9 +155,9 @@
                     <div class="about-visual slide-in-right">
                         <div class="code-animation" aria-hidden="true">
                             <div class="code-line"><span class="code-keyword">public class</span> <span class="code-class">Developer</span> {</div>
-                            <div class="code-line indent"><span class="code-keyword">private</span> <span class="code-class">String</span> nome = <span class="code-string">"Otávio Guedes"</span>;</div>
-                            <div class="code-line indent"><span class="code-keyword">private</span> <span class="code-class">String</span> cargo = <span class="code-string">"Eng.Software / Back-end Java"</span>;</div>
-                            <div class="code-line indent"><span class="code-keyword">private</span> <span class="code-class">String</span> foco = <span class="code-string">"APIs, testes, modelagem e cloud"</span>;</div>
+                            <div class="code-line indent"><span class="code-keyword">private</span> <span class="code-class">String</span> <span data-i18n="code-name">nome</span> = <span class="code-string" data-i18n="code-name-value">"Otávio Guedes"</span>;</div>
+                            <div class="code-line indent"><span class="code-keyword">private</span> <span class="code-class">String</span> <span data-i18n="code-role">cargo</span> = <span class="code-string" data-i18n="code-role-value">"Eng.Software / Back-end Java"</span>;</div>
+                            <div class="code-line indent"><span class="code-keyword">private</span> <span class="code-class">String</span> <span data-i18n="code-focus">foco</span> = <span class="code-string" data-i18n="code-focus-value">"APIs, testes, modelagem e cloud"</span>;</div>
                             <div class="code-line">}</div>
                         </div>
                     </div>
@@ -161,18 +168,18 @@
         <!-- PROJETOS -->
         <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title">Projetos</h2>
-                <p class="section-subtitle">Seleção de projetos no meu GitHub — códigos e README disponíveis nos links.</p>
+                <h2 class="section-title" data-i18n="projects-title">Projetos</h2>
+                <p class="section-subtitle" data-i18n="projects-subtitle">Seleção de projetos no meu GitHub — códigos e README disponíveis nos links.</p>
 
                 <div class="projects-grid slide-in-up">
                     <!-- API Amigo Secreto 2.0 -->
                     <article class="project-card">
                         <div class="project-image">
-                            <img src="https://placehold.co/600x400/570000/FFE6E6?text=API+Amigo+Secreto+2.0" alt="Preview do projeto Organizador de Arquivos Python" loading="lazy" />
+                            <img src="https://placehold.co/600x400/570000/FFE6E6?text=API+Amigo+Secreto+2.0" alt="Preview do projeto API Amigo Secreto 2.0" loading="lazy" />
                         </div>
                         <div class="project-content">
-                            <h3>API Amigo Secreto 2.0</h3>
-                            <p>API REST moderna e completa para gerenciar sorteios de amigo secreto de forma digital e automatizada. Desenvolvida com Spring Boot, oferece recursos avançados de gerenciamento de grupos, algoritmo de sorteio inteligente e sistema de mensagens anônimas.</p>
+                            <h3 data-i18n="project1-title">API Amigo Secreto 2.0</h3>
+                            <p data-i18n="project1-desc">API REST moderna e completa para gerenciar sorteios de amigo secreto de forma digital e automatizada. Desenvolvida com Spring Boot, oferece recursos avançados de gerenciamento de grupos, algoritmo de sorteio inteligente e sistema de mensagens anônimas.</p>
                             <div class="project-tech">
                                 <span>Java</span>
                                 <span>Spring Framework</span>
@@ -192,7 +199,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Roguelike Java</h3>
-                            <p>Um jogo roguelike clássico desenvolvido em Java puro, jogado direto no terminal. Explore masmorras geradas proceduralmente, colete itens, derrote inimigos e tente sobreviver o máximo de níveis possível!</p>
+                            <p data-i18n="project2-desc">Um jogo roguelike clássico desenvolvido em Java puro, jogado direto no terminal. Explore masmorras geradas proceduralmente, colete itens, derrote inimigos e tente sobreviver o máximo de níveis possível!</p>
                             <div class="project-tech">
                                 <span>Java</span>
                                 <span>POO</span>
@@ -211,7 +218,7 @@
                         </div>
                         <div class="project-content">
                             <h3>AcademiaGYM — API REST</h3>
-                            <p>API RESTful profissional para gerenciamento completo de academias de ginástica, desenvolvida com Spring Boot 3.2.5, Spring Data JPA, Bean Validation e arquitetura em camadas.</p>
+                            <p data-i18n="project3-desc">API RESTful profissional para gerenciamento completo de academias de ginástica, desenvolvida com Spring Boot 3.2.5, Spring Data JPA, Bean Validation e arquitetura em camadas.</p>
                             <div class="project-tech">
                                 <span>Spring Boot</span>
                                 <span>API REST</span>
@@ -229,12 +236,12 @@
                             <img src="https://placehold.co/600x400/570000/FFE6E6?text=E-commerce+Database" alt="Preview do projeto Sistema E-commerce Database" loading="lazy" />
                         </div>
                         <div class="project-content">
-                            <h3>Sistema E-commerce — Modelagem de Banco</h3>
-                            <p>Este projeto apresenta uma modelagem completa de banco de dados para um sistema de e-commerce, desenvolvida em PostgreSQL. O sistema foi projetado para suportar operações comerciais complexas, incluindo gestão de clientes (PF/PJ), produtos, pedidos, pagamentos, estoque e entregas.</p>
+                            <h3 data-i18n="project4-title">Sistema E-commerce — Modelagem de Banco</h3>
+                            <p data-i18n="project4-desc">Este projeto apresenta uma modelagem completa de banco de dados para um sistema de e-commerce, desenvolvida em PostgreSQL. O sistema foi projetado para suportar operações comerciais complexas, incluindo gestão de clientes (PF/PJ), produtos, pedidos, pagamentos, estoque e entregas.</p>
                             <div class="project-tech">
                                 <span>SQL</span>
                                 <span>PostgreSQL</span>
-                                <span>Modelagem ER</span>
+                                <span data-i18n="project4-tech">Modelagem ER</span>
                             </div>
                             <div class="project-links">
                                 <a href="https://github.com/Otavio2704/BancoDeDados--Ecommerce--PostgreSQL" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
@@ -248,8 +255,8 @@
                             <img src="https://placehold.co/600x400/570000/FFE6E6?text=Gerenciador+Times" alt="Preview do projeto Gerenciador de Times" loading="lazy" />
                         </div>
                         <div class="project-content">
-                            <h3>Gerenciador de Times e Jogadores</h3>
-                            <p>Sistema completo em Java para gerenciamento de times de futebol e seus jogadores, com persistência de dados e interface de linha de comando intuitiva.</p>
+                            <h3 data-i18n="project5-title">Gerenciador de Times e Jogadores</h3>
+                            <p data-i18n="project5-desc">Sistema completo em Java para gerenciamento de times de futebol e seus jogadores, com persistência de dados e interface de linha de comando intuitiva.</p>
                             <div class="project-tech">
                                 <span>Java</span>
                                 <span>POO</span>
@@ -267,8 +274,8 @@
                             <img src="https://placehold.co/600x400/570000/FFE6E6?text=Otavio's+Bank" alt="Preview do projeto Otavio's Bank" loading="lazy" />
                         </div>
                         <div class="project-content">
-                            <h3>Otavio's Bank — Sistema Bancário (Java POO)</h3>
-                            <p>Um sistema bancário completo desenvolvido em Java que demonstra os principais conceitos de Programação Orientada a Objetos (POO), oferecendo uma experiência bancária simulada com funcionalidades modernas como PIX e investimentos.</p>
+                            <h3 data-i18n="project6-title">Otavio's Bank — Sistema Bancário (Java POO)</h3>
+                            <p data-i18n="project6-desc">Um sistema bancário completo desenvolvido em Java que demonstra os principais conceitos de Programação Orientada a Objetos (POO), oferecendo uma experiência bancária simulada com funcionalidades modernas como PIX e investimentos.</p>
                             <div class="project-tech">
                                 <span>Java</span>
                                 <span>POO</span>
@@ -285,10 +292,10 @@
         <!-- CONTATO -->
         <section id="contact" class="section">
             <div class="container">
-                <h2 class="section-title">Contato</h2>
+                <h2 class="section-title" data-i18n="contact-title">Contato</h2>
                 <div class="contact-content">
                     <div class="contact-info slide-in-left">
-                        <p>Estou aberto a oportunidades e colaborações. Pode me encontrar no GitHub ou LinkedIn — ou enviar uma mensagem por aqui.</p>
+                        <p data-i18n="contact-text">Estou aberto a oportunidades e colaborações. Pode me encontrar no GitHub ou LinkedIn — ou enviar uma mensagem por aqui.</p>
 
                         <div class="contact-details">
                             <div class="contact-item">
@@ -310,18 +317,18 @@
                     <div class="contact-form slide-in-right">
                         <form id="contact-form" aria-label="Formulário de contato">
                             <div class="form-group">
-                                <label for="user_name" class="sr-only">Seu nome</label>
-                                <input type="text" id="user_name" placeholder="Seu nome" required name="user_name" aria-label="Seu nome" />
+                                <label for="user_name" class="sr-only" data-i18n="form-name-label">Seu nome</label>
+                                <input type="text" id="user_name" placeholder="Seu nome" required name="user_name" aria-label="Seu nome" data-i18n-placeholder="name-placeholder" />
                             </div>
                             <div class="form-group">
-                                <label for="user_email" class="sr-only">Seu e-mail</label>
-                                <input type="email" id="user_email" placeholder="Seu e-mail" required name="user_email" aria-label="Seu e-mail" />
+                                <label for="user_email" class="sr-only" data-i18n="form-email-label">Seu e-mail</label>
+                                <input type="email" id="user_email" placeholder="Seu e-mail" required name="user_email" aria-label="Seu e-mail" data-i18n-placeholder="email-placeholder" />
                             </div>
                             <div class="form-group">
-                                <label for="message" class="sr-only">Sua mensagem</label>
-                                <textarea id="message" name="message" placeholder="Mensagem" rows="5" required aria-label="Sua mensagem"></textarea>
+                                <label for="message" class="sr-only" data-i18n="form-message-label">Sua mensagem</label>
+                                <textarea id="message" name="message" placeholder="Mensagem" rows="5" required aria-label="Sua mensagem" data-i18n-placeholder="message-placeholder"></textarea>
                             </div>
-                            <button type="submit" class="glow-genz-button">Enviar mensagem</button>
+                            <button type="submit" class="glow-genz-button" data-i18n="send-message">Enviar mensagem</button>
                         </form>
                     </div>
                 </div>
@@ -330,7 +337,7 @@
     </main>
 
     <footer role="contentinfo" style="text-align: center; padding: 30px 20px; color: var(--muted); border-top: 1px solid rgba(255, 252, 56, 0.1);">
-        <p>&copy; 2025 Otávio Guedes. Todos os direitos reservados.</p>
+        <p data-i18n="footer-rights">&copy; 2025 Otávio Guedes. Todos os direitos reservados.</p>
     </footer>
 
     <!-- Scripts -->
