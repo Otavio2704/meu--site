@@ -1192,4 +1192,43 @@ body::after {
     height: auto;
     max-height: calc(100vh - 68px);
   }
+
+  /* Language Toggle Button */
+.language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: var(--accent);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.language-toggle:hover {
+    background: var(--accent);
+    color: #000000;
+    transform: scale(1.05);
+}
+
+.lang-icon {
+    font-size: 1.1rem;
+}
+
+.lang-text {
+    font-family: inherit;
+}
+
+@media (max-width: 768px) {
+    .language-toggle {
+        position: absolute;
+        right: 70px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
 }
