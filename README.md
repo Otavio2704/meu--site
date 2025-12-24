@@ -164,6 +164,7 @@ portfolio/
 ├── LICENSE                         # Licença MIT
 ├── icon.jpg                        # Favicon (16x16 ou 32x32)
 ├── minha-foto.jpg                  # Foto de perfil (quadrada recomendado)
+├── preview.jpg                     # Foto de prévia (Meta tags Open Graph)
 ├── Otavio_Guedes_Curriculo.pdf     # CV em português
 └── Otavio_Guedes_Resume.pdf        # CV em inglês (opcional)
 ```
