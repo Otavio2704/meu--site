@@ -234,19 +234,19 @@ function initContactForm() {
         const currentLang = localStorage.getItem('language') || 'pt';
         const messages = {
             pt: {
-                success: '✅ Mensagem enviada com sucesso!',
-                error: '❌ Falha ao enviar mensagem: '
+                success: 'Mensagem enviada com sucesso!',
+                error: 'Falha ao enviar mensagem: '
             },
             en: {
-                success: '✅ Message sent successfully!',
-                error: '❌ Failed to send message: '
+                success: 'Message sent successfully!',
+                error: 'Failed to send message: '
             }
         };
 
         try {
             await emailjs.sendForm(
-                "service_84s8dbo",
-                "template_n9fc865",
+                "seu_service_id",
+                "seu_template_id",
                 form
             );
             alert(messages[currentLang].success);
@@ -461,3 +461,4 @@ function initLanguageToggle() {
         }
     }
 }
+
