@@ -323,6 +323,9 @@ function initLanguageToggle() {
             'contact-title': 'Contato',
             'contact-text': 'Estou aberto a oportunidades e colaborações. Pode me encontrar no GitHub ou LinkedIn — ou enviar uma mensagem por aqui.',
             
+            // WhatsApp
+            'whatsapp-link': 'Fale comigo',
+            
             // Form
             'send-message': 'Enviar mensagem',
             'name-placeholder': 'Seu nome',
@@ -394,6 +397,9 @@ function initLanguageToggle() {
             'contact-title': 'Contact',
             'contact-text': 'I\'m open to opportunities and collaborations. You can find me on GitHub or LinkedIn — or send a message here.',
             
+            // WhatsApp
+            'whatsapp-link': 'Talk to me',
+            
             // Form
             'send-message': 'Send Message',
             'name-placeholder': 'Your name',
@@ -413,17 +419,18 @@ function initLanguageToggle() {
     updateLanguage(currentLang);
 
     // Event listener para o botão de troca de idioma
-    langToggle.addEventListener('click', () => {
-        currentLang = currentLang === 'pt' ? 'en' : 'pt';
-        localStorage.setItem('language', currentLang);
-        updateLanguage(currentLang);
-    });
+    // Event listener para o botão de troca de idioma
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            localStorage.setItem('language', currentLang);
+            updateLanguage(currentLang);
+        });
 
     function updateLanguage(lang) {
-        // Atualizar atributo lang do HTML
+    // Atualizar atributo lang do HTML
         document.getElementById('html-root').setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
-        
-        // Atualizar textos com data-i18n
+    
+    // Atualizar textos com data-i18n
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (translations[lang][key]) {
@@ -431,7 +438,7 @@ function initLanguageToggle() {
             }
         });
 
-        // Atualizar placeholders dos inputs
+    // Atualizar placeholders dos inputs
         document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
             const key = element.getAttribute('data-i18n-placeholder');
             if (translations[lang][key]) {
@@ -439,14 +446,14 @@ function initLanguageToggle() {
             }
         });
 
-        // Atualizar texto do botão de idioma
+    // Atualizar texto do botão de idioma
         const langText = langToggle.querySelector('.lang-text');
         langText.textContent = lang === 'pt' ? 'EN' : 'PT';
 
-        // Atualizar link do CV
+    // Atualizar link do CV
         updateCVLink(lang);
 
-        // Atualizar aria-label do botão
+    // Atualizar aria-label do botão
         langToggle.setAttribute('aria-label', lang === 'pt' ? 'Alternar idioma' : 'Switch language');
     }
 
@@ -461,4 +468,3 @@ function initLanguageToggle() {
         }
     }
 }
-
