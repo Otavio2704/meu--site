@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://otavio2007-backend.edgeone.app/sitemap.xml
