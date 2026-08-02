@@ -548,6 +548,10 @@ function initOrbitAnimations() {
 
   if (!sunCore) return;
 
+  /* IMPORTANTE: o delay do .orbit-group e do seu .planet-anchor tem que
+     ser SEMPRE idêntico. É esse par igual que garante que o contra-giro
+     cancele exatamente o giro do grupo — se ficassem dessincronizados,
+     os ícones apareceriam girados/tortos em vez de "de pé". */
   var delay1 = -(Math.random() * 100).toFixed(2);
   var delay2 = -(Math.random() * 100).toFixed(2);
   var delay3 = -(Math.random() * 100).toFixed(2);
@@ -557,14 +561,13 @@ function initOrbitAnimations() {
 
   var styleEl = document.createElement('style');
   styleEl.textContent =
-    '.orbit-paused { animation-play-state: paused !important; -webkit-animation-play-state: paused !important; }' +
-    '.orbit-paused .planet { animation-play-state: paused !important; -webkit-animation-play-state: paused !important; }\n' +
-    '.orbit-group-1, .orbit-group-1 .planet { animation-delay: ' + delay1 + 's !important; }\n' +
-    '.orbit-group-2, .orbit-group-2 .planet { animation-delay: ' + delay2 + 's !important; }\n' +
-    '.orbit-group-3, .orbit-group-3 .planet { animation-delay: ' + delay3 + 's !important; }\n' +
-    '.orbit-group-4, .orbit-group-4 .planet { animation-delay: ' + delay4 + 's !important; }\n' +
-    '.orbit-group-5, .orbit-group-5 .planet { animation-delay: ' + delay5 + 's !important; }\n' +
-    '.orbit-group-6, .orbit-group-6 .planet { animation-delay: ' + delay6 + 's !important; }';
+    '.orbit-paused, .orbit-paused .planet-anchor { animation-play-state: paused !important; -webkit-animation-play-state: paused !important; }\n' +
+    '.orbit-group-1, .orbit-group-1 .planet-anchor { animation-delay: ' + delay1 + 's !important; }\n' +
+    '.orbit-group-2, .orbit-group-2 .planet-anchor { animation-delay: ' + delay2 + 's !important; }\n' +
+    '.orbit-group-3, .orbit-group-3 .planet-anchor { animation-delay: ' + delay3 + 's !important; }\n' +
+    '.orbit-group-4, .orbit-group-4 .planet-anchor { animation-delay: ' + delay4 + 's !important; }\n' +
+    '.orbit-group-5, .orbit-group-5 .planet-anchor { animation-delay: ' + delay5 + 's !important; }\n' +
+    '.orbit-group-6, .orbit-group-6 .planet-anchor { animation-delay: ' + delay6 + 's !important; }';
   document.head.appendChild(styleEl);
 
   function pauseOrbits()  { orbitGroups.forEach(function(g) { g.classList.add('orbit-paused'); }); }
