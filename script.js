@@ -670,7 +670,7 @@ function initContactForm() {
     btn.style.opacity = '0.7';
     setStatus(msgs[lang].sending, null);
 
-    emailjs.sendForm('service_7ns62tk', 'template_nwlw00d', form)
+    emailjs.sendForm('[SERVICE]', '[TEMPLATE]', form)
       .then(function () {
         setStatus(msgs[lang].success, 'success');
         form.reset();
