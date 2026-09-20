@@ -1233,12 +1233,12 @@ footer {
   .orbit-group-5 .planet[data-orbit="5"] { transform: translateX(72px) !important; animation: counterSpinMob5 46s linear infinite !important; }
   .orbit-group-6 .planet[data-orbit="6"] { transform: translateX(80px) !important; animation: counterSpinMob6 52s linear infinite !important; }
 
-  @keyframes counterSpinMob1 { from { transform: translateX(70px) rotate(0deg); } to { transform: translateX(70px) rotate(-360deg); } }
-  @keyframes counterSpinMob2 { from { transform: translateX(84px) rotate(0deg); } to { transform: translateX(84px) rotate(-360deg); } }
-  @keyframes counterSpinMob3 { from { transform: translateX(98px) rotate(0deg); } to { transform: translateX(98px) rotate(-360deg); } }
-  @keyframes counterSpinMob4 { from { transform: translateX(112px) rotate(0deg); } to { transform: translateX(112px) rotate(-360deg); } }
-  @keyframes counterSpinMob5 { from { transform: translateX(126px) rotate(0deg); } to { transform: translateX(126px) rotate(-360deg); } }
-  @keyframes counterSpinMob6 { from { transform: translateX(140px) rotate(0deg); } to { transform: translateX(140px) rotate(-360deg); } }
+  @keyframes counterSpinMob1 { from { transform: translateX(40px) rotate(0deg); } to { transform: translateX(40px) rotate(-360deg); } }
+  @keyframes counterSpinMob2 { from { transform: translateX(48px) rotate(0deg); } to { transform: translateX(48px) rotate(-360deg); } }
+  @keyframes counterSpinMob3 { from { transform: translateX(56px) rotate(0deg); } to { transform: translateX(56px) rotate(-360deg); } }
+  @keyframes counterSpinMob4 { from { transform: translateX(64px) rotate(0deg); } to { transform: translateX(64px) rotate(-360deg); } }
+  @keyframes counterSpinMob5 { from { transform: translateX(72px) rotate(0deg); } to { transform: translateX(72px) rotate(-360deg); } }
+  @keyframes counterSpinMob6 { from { transform: translateX(80px) rotate(0deg); } to { transform: translateX(80px) rotate(-360deg); } }
 
   .tech-icon { width: 26px !important; height: 26px !important; margin-left: -13px !important; margin-top: -13px !important; padding: 4px !important; }
   .sun-core { width: 56px !important; height: 56px !important; }
@@ -1293,19 +1293,19 @@ footer {
   .orbit-ring-5 { width: 162px; height: 162px; }
   .orbit-ring-6 { width: 180px; height: 180px; }
 
-  .orbit-group-1 .planet[data-orbit="1"] { transform: translateX(34px) !important; animation: counterSpin480_1 22s linear infinite !important; }
-  .orbit-group-2 .planet[data-orbit="2"] { transform: translateX(42px) !important; animation: counterSpin480_2 28s linear infinite !important; }
-  .orbit-group-3 .planet[data-orbit="3"] { transform: translateX(50px) !important; animation: counterSpin480_3 34s linear infinite !important; }
-  .orbit-group-4 .planet[data-orbit="4"] { transform: translateX(58px) !important; animation: counterSpin480_4 40s linear infinite !important; }
-  .orbit-group-5 .planet[data-orbit="5"] { transform: translateX(66px) !important; animation: counterSpin480_5 46s linear infinite !important; }
-  .orbit-group-6 .planet[data-orbit="6"] { transform: translateX(74px) !important; animation: counterSpin480_6 52s linear infinite !important; }
+  .orbit-group-1 .planet[data-orbit="1"] { transform: translateX(45px) !important; animation: counterSpin480_1 22s linear infinite !important; }
+  .orbit-group-2 .planet[data-orbit="2"] { transform: translateX(54px) !important; animation: counterSpin480_2 28s linear infinite !important; }
+  .orbit-group-3 .planet[data-orbit="3"] { transform: translateX(63px) !important; animation: counterSpin480_3 34s linear infinite !important; }
+  .orbit-group-4 .planet[data-orbit="4"] { transform: translateX(72px) !important; animation: counterSpin480_4 40s linear infinite !important; }
+  .orbit-group-5 .planet[data-orbit="5"] { transform: translateX(81px) !important; animation: counterSpin480_5 46s linear infinite !important; }
+  .orbit-group-6 .planet[data-orbit="6"] { transform: translateX(90px) !important; animation: counterSpin480_6 52s linear infinite !important; }
 
-  @keyframes counterSpin480_1 { from { transform: translateX(34px) rotate(0deg); } to { transform: translateX(34px) rotate(-360deg); } }
-  @keyframes counterSpin480_2 { from { transform: translateX(42px) rotate(0deg); } to { transform: translateX(42px) rotate(-360deg); } }
-  @keyframes counterSpin480_3 { from { transform: translateX(50px) rotate(0deg); } to { transform: translateX(50px) rotate(-360deg); } }
-  @keyframes counterSpin480_4 { from { transform: translateX(58px) rotate(0deg); } to { transform: translateX(58px) rotate(-360deg); } }
-  @keyframes counterSpin480_5 { from { transform: translateX(66px) rotate(0deg); } to { transform: translateX(66px) rotate(-360deg); } }
-  @keyframes counterSpin480_6 { from { transform: translateX(74px) rotate(0deg); } to { transform: translateX(74px) rotate(-360deg); } }
+  @keyframes counterSpin480_1 { from { transform: translateX(45px) rotate(0deg); } to { transform: translateX(45px) rotate(-360deg); } }
+  @keyframes counterSpin480_2 { from { transform: translateX(54px) rotate(0deg); } to { transform: translateX(54px) rotate(-360deg); } }
+  @keyframes counterSpin480_3 { from { transform: translateX(63px) rotate(0deg); } to { transform: translateX(63px) rotate(-360deg); } }
+  @keyframes counterSpin480_4 { from { transform: translateX(72px) rotate(0deg); } to { transform: translateX(72px) rotate(-360deg); } }
+  @keyframes counterSpin480_5 { from { transform: translateX(81px) rotate(0deg); } to { transform: translateX(81px) rotate(-360deg); } }
+  @keyframes counterSpin480_6 { from { transform: translateX(90px) rotate(0deg); } to { transform: translateX(90px) rotate(-360deg); } }
 
   .tech-icon { width: 28px !important; height: 28px !important; margin-left: -14px !important; margin-top: -14px !important; padding: 4px !important; }
   .sun-core { width: 64px !important; height: 64px !important; }
@@ -1361,19 +1361,19 @@ footer {
   .orbit-ring-6 { width: 140px; height: 140px; }
   .sun-core { width: 52px !important; height: 52px !important; }
 
-  .orbit-group-1 .planet[data-orbit="1"] { transform: translateX(28px) !important; animation: counterSpin360_1 22s linear infinite !important; }
-  .orbit-group-2 .planet[data-orbit="2"] { transform: translateX(34px) !important; animation: counterSpin360_2 28s linear infinite !important; }
-  .orbit-group-3 .planet[data-orbit="3"] { transform: translateX(40px) !important; animation: counterSpin360_3 34s linear infinite !important; }
-  .orbit-group-4 .planet[data-orbit="4"] { transform: translateX(46px) !important; animation: counterSpin360_4 40s linear infinite !important; }
-  .orbit-group-5 .planet[data-orbit="5"] { transform: translateX(52px) !important; animation: counterSpin360_5 46s linear infinite !important; }
-  .orbit-group-6 .planet[data-orbit="6"] { transform: translateX(58px) !important; animation: counterSpin360_6 52s linear infinite !important; }
+  .orbit-group-1 .planet[data-orbit="1"] { transform: translateX(35px) !important; animation: counterSpin360_1 22s linear infinite !important; }
+  .orbit-group-2 .planet[data-orbit="2"] { transform: translateX(42px) !important; animation: counterSpin360_2 28s linear infinite !important; }
+  .orbit-group-3 .planet[data-orbit="3"] { transform: translateX(49px) !important; animation: counterSpin360_3 34s linear infinite !important; }
+  .orbit-group-4 .planet[data-orbit="4"] { transform: translateX(56px) !important; animation: counterSpin360_4 40s linear infinite !important; }
+  .orbit-group-5 .planet[data-orbit="5"] { transform: translateX(63px) !important; animation: counterSpin360_5 46s linear infinite !important; }
+  .orbit-group-6 .planet[data-orbit="6"] { transform: translateX(70px) !important; animation: counterSpin360_6 52s linear infinite !important; }
 
-  @keyframes counterSpin360_1 { from { transform: translateX(28px) rotate(0deg); } to { transform: translateX(28px) rotate(-360deg); } }
-  @keyframes counterSpin360_2 { from { transform: translateX(34px) rotate(0deg); } to { transform: translateX(34px) rotate(-360deg); } }
-  @keyframes counterSpin360_3 { from { transform: translateX(40px) rotate(0deg); } to { transform: translateX(40px) rotate(-360deg); } }
-  @keyframes counterSpin360_4 { from { transform: translateX(46px) rotate(0deg); } to { transform: translateX(46px) rotate(-360deg); } }
-  @keyframes counterSpin360_5 { from { transform: translateX(52px) rotate(0deg); } to { transform: translateX(52px) rotate(-360deg); } }
-  @keyframes counterSpin360_6 { from { transform: translateX(58px) rotate(0deg); } to { transform: translateX(58px) rotate(-360deg); } }
+  @keyframes counterSpin360_1 { from { transform: translateX(35px) rotate(0deg); } to { transform: translateX(35px) rotate(-360deg); } }
+  @keyframes counterSpin360_2 { from { transform: translateX(42px) rotate(0deg); } to { transform: translateX(42px) rotate(-360deg); } }
+  @keyframes counterSpin360_3 { from { transform: translateX(49px) rotate(0deg); } to { transform: translateX(49px) rotate(-360deg); } }
+  @keyframes counterSpin360_4 { from { transform: translateX(56px) rotate(0deg); } to { transform: translateX(56px) rotate(-360deg); } }
+  @keyframes counterSpin360_5 { from { transform: translateX(63px) rotate(0deg); } to { transform: translateX(63px) rotate(-360deg); } }
+  @keyframes counterSpin360_6 { from { transform: translateX(70px) rotate(0deg); } to { transform: translateX(70px) rotate(-360deg); } }
 
   .service-face { padding: 22px 16px; }
   .service-face h3 { font-size: 1rem; }
