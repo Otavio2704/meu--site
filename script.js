@@ -109,7 +109,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   var inits = [
     initPerformance,
-    initThemeToggle,
     initScrollProgress,
     initCustomCursor,
     initSpotlight,
@@ -758,45 +757,6 @@ function initPerformance() {
 }
 
 /* ============================================================
-   THEME TOGGLE — claro/escuro, com persistência e
-   respeito ao tema preferido do sistema.
-   ============================================================ */
-function initThemeToggle() {
-  var toggle = document.getElementById('theme-toggle');
-  if (!toggle) return;
-
-  var html = document.getElementById('html-root') || document.documentElement;
-
-  function systemPref() {
-    try {
-      return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    } catch (e) { return 'dark'; }
-  }
-
-  function saved() {
-    var v = storage.get('theme', null);
-    return (v === 'light' || v === 'dark') ? v : null;
-  }
-
-  function apply(theme, persist) {
-    html.classList.remove('theme-light');
-    if (theme === 'light') html.classList.add('theme-light');
-    if (persist !== false) storage.set('theme', theme);
-    var light = theme === 'light';
-    toggle.setAttribute('aria-pressed', String(light));
-    toggle.setAttribute('title', light ? 'Mudar para tema escuro' : 'Mudar para tema claro');
-    toggle.setAttribute('aria-label', toggle.getAttribute('title'));
-  }
-
-  apply(saved() || systemPref(), false);
-
-  toggle.addEventListener('click', function () {
-    var light = html.classList.contains('theme-light');
-    apply(light ? 'dark' : 'light', true);
-  });
-}
-
-/* ============================================================
    FILTRO DE PROJETOS — por tecnologia
    ============================================================ */
 function initProjectFilter() {
@@ -936,9 +896,9 @@ function initLanguageToggle() {
       'stat-focus': 'Foco em back-end',
       'experience-title': 'Experiência',
       'timeline-badge-current': 'Atual',
-      'exp1-item1': 'Atuo em desenvolvimento com foco em Java, unindo código de aplicação a fundamentos de infraestrutura e segurança: servidores Windows/Ubuntu, SQL Server e integração via JDBC.',
-      'exp1-item2': 'Aplico conceitos de segurança da informação (IAM, PAM, GRC), com boas práticas alinhadas à ISO 27001 e LGPD, além de produzir conteúdo técnico sobre esses temas.',
-      'exp1-item3': 'Trabalho com scripting em bash e redes no suporte a rotinas de desenvolvimento e testes, usando ambientes virtualizados em VirtualBox.',
+      'exp1-item1': 'Atuei em desenvolvimento com foco em Java, unindo código de aplicação a fundamentos de infraestrutura e segurança: servidores Windows/Ubuntu, SQL Server e integração via JDBC.',
+      'exp1-item2': 'Apliquei conceitos de segurança da informação (IAM, PAM, GRC), com boas práticas alinhadas à ISO 27001 e LGPD, além de produzir conteúdo técnico sobre esses temas.',
+      'exp1-item3': 'Trabalhei com scripting em bash e redes no suporte a rotinas de desenvolvimento e testes, usando ambientes virtualizados em VirtualBox.',
       'education-title': 'Formação',
       'edu-course': 'Bacharelado em Engenharia de Software',
       'community-title': 'Comunidade',
@@ -1027,9 +987,9 @@ function initLanguageToggle() {
       'stat-focus': 'Back-end focused',
       'experience-title': 'Experience',
       'timeline-badge-current': 'Current',
-      'exp1-item1': 'I work on Java-focused development, connecting application code with infrastructure and security fundamentals: Windows/Ubuntu servers, SQL Server and JDBC integration.',
-      'exp1-item2': 'I apply information security concepts (IAM, PAM, GRC), following best practices aligned with ISO 27001 and LGPD, while also producing technical content on these topics.',
-      'exp1-item3': 'I work with bash scripting and networking to support development and testing routines, using virtualized environments in VirtualBox.',
+      'exp1-item1': 'I worked on Java-focused development, connecting application code with infrastructure and security fundamentals: Windows/Ubuntu servers, SQL Server and JDBC integration.',
+      'exp1-item2': 'I applied information security concepts (IAM, PAM, GRC), following best practices aligned with ISO 27001 and LGPD, while also producing technical content on these topics.',
+      'exp1-item3': 'I worked with bash scripting and networking to support development and testing routines, using virtualized environments in VirtualBox.',
       'education-title': 'Education',
       'edu-course': 'Bachelor\'s Degree in Software Engineering',
       'community-title': 'Community',

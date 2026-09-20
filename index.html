@@ -21,18 +21,14 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#f2f1ec" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Otávio Guedes - Engenheiro de Software Back-end Java | Portfólio</title>
     <link rel="icon" type="image/jpeg" href="icon.jpg" />
     <style>
-      /* Evita flash de fundo e segura o tema antes do CSS carregar */
-      html { background: #030303; }
-      html.theme-light { background: #f2f1ec; }
-      html:not(.theme-light) { color-scheme: dark; }
-      html.theme-light { color-scheme: light; }
+      /* Evita flash de fundo antes do CSS carregar */
+      html { background: #030303; color-scheme: dark; }
       :root {
         --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
         --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
@@ -108,10 +104,6 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
             </div>
-            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema" title="Alternar tema claro/escuro">
-                <svg class="theme-icon theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
-                <svg class="theme-icon theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
             <button class="language-toggle" id="language-toggle" aria-label="Alternar idioma">
                 <span class="lang-icon">🌐</span><span class="lang-text">PT</span>
             </button>
@@ -358,7 +350,7 @@
                 <div class="timeline-card">
                     <span class="timeline-badge" data-i18n="timeline-badge-current">Atual</span>
                     <h3>Estagiário de Desenvolvimento</h3>
-                    <p class="timeline-org">NicolaSec — São Paulo/SP <span class="timeline-period">· Jul 2025 – o momento</span></p>
+                    <p class="timeline-org">NicolaSec — São Paulo/SP <span class="timeline-period">· Jul 2026 – Set 2026</span></p>
                     <ul class="timeline-list">
                         <li data-i18n="exp1-item1">Atuo em desenvolvimento com foco em Java, unindo código de aplicação a fundamentos de infraestrutura e segurança: servidores Windows/Ubuntu, SQL Server e integração via JDBC.</li>
                         <li data-i18n="exp1-item2">Aplico conceitos de segurança da informação (IAM, PAM, GRC), com boas práticas alinhadas à ISO 27001 e LGPD, além de produzir conteúdo técnico sobre esses temas.</li>
