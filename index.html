@@ -10,22 +10,37 @@
     <meta property="og:url" content="https://otavio2007-backend.edgeone.app/">
     <meta property="og:title" content="Otávio Guedes - Engenheiro de Software | Back-end Java Developer">
     <meta property="og:description" content="Desenvolvedor Back-end especializado em Java, Spring Boot, APIs REST escaláveis, modelagem de banco de dados PostgreSQL e soluções em cloud.">
-    <meta property="og:image" content="https://otavio2007-backend.edgeone.app/preview.jpg">
+    <meta property="og:image" content="https://otavio2007-backend.edgeone.app/preview.webp">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://otavio2007-backend.edgeone.app/">
     <meta property="twitter:title" content="Otávio Guedes - Engenheiro de Software | Back-end Java Developer">
     <meta property="twitter:description" content="Desenvolvedor Back-end especializado em Java, Spring Boot, APIs REST escaláveis e soluções em cloud.">
-    <meta property="twitter:image" content="https://otavio2007-backend.edgeone.app/preview.jpg">
+    <meta property="twitter:image" content="https://otavio2007-backend.edgeone.app/preview.webp">
     <link rel="canonical" href="https://otavio2007-backend.edgeone.app/">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f2f1ec" media="(prefers-color-scheme: light)" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Otávio Guedes - Engenheiro de Software Back-end Java | Portfólio</title>
     <link rel="icon" type="image/jpeg" href="icon.jpg" />
+    <style>
+      /* Evita flash de fundo e segura o tema antes do CSS carregar */
+      html { background: #030303; }
+      html.theme-light { background: #f2f1ec; }
+      html:not(.theme-light) { color-scheme: dark; }
+      html.theme-light { color-scheme: light; }
+      :root {
+        --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+      }
+      html.pref-no-trans *, html.pref-no-trans *::before, html.pref-no-trans *::after {
+        transition: none !important;
+      }
+    </style>
     <link rel="preload" as="image" href="minha-foto.webp" fetchpriority="high" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="style.css" />
@@ -74,6 +89,7 @@
             <li><a href="#home"     class="nav-link active" data-i18n="nav-home">Início</a></li>
             <li><a href="#about"    class="nav-link"        data-i18n="nav-about">Sobre</a></li>
             <li><a href="#services" class="nav-link"        data-i18n="nav-services">Serviços</a></li>
+            <li><a href="#experience" class="nav-link"      data-i18n="nav-experience">Experiência</a></li>
             <li><a href="#projects" class="nav-link"        data-i18n="nav-projects">Projetos</a></li>
             <li><a href="#contact"  class="nav-link"        data-i18n="nav-contact">Contato</a></li>
         </ul>
@@ -92,6 +108,10 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
             </div>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema" title="Alternar tema claro/escuro">
+                <svg class="theme-icon theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+                <svg class="theme-icon theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
             <button class="language-toggle" id="language-toggle" aria-label="Alternar idioma">
                 <span class="lang-icon">🌐</span><span class="lang-text">PT</span>
             </button>
@@ -127,7 +147,7 @@
         <div class="sun-core">
             <picture>
                 <source srcset="minha-foto.webp" type="image/webp" />
-                <img src="minha-foto.jpg" alt="Foto de perfil de Otávio Guedes" fetchpriority="high" width="500" height="500" />
+                <img src="minha-foto.webp" alt="Foto de perfil de Otávio Guedes" fetchpriority="high" width="500" height="500" />
             </picture>
         </div>
 
@@ -181,6 +201,30 @@
     <div class="scroll-indicator" aria-hidden="true"><div class="scroll-arrow"></div></div>
 </section>
 
+<!-- ═══════════════════════ ESTATÍSTICAS ═══════════════════════ -->
+<section class="section section-stats" aria-label="Números em destaque">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number" data-count-to="9" data-count-suffix="+">0</span>
+                <span class="stat-label" data-i18n="stat-projects">Projetos publicados</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count-to="10" data-count-suffix="+">0</span>
+                <span class="stat-label" data-i18n="stat-technologies">Tecnologias no dia a dia</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count-to="2" data-count-suffix="">0</span>
+                <span class="stat-label" data-i18n="stat-years">Anos codando</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count-to="100" data-count-suffix="%">0</span>
+                <span class="stat-label" data-i18n="stat-focus">Foco em back-end</span>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ═══════════════════════ SOBRE ═══════════════════════ -->
 <section id="about" class="section">
     <div class="container">
@@ -199,21 +243,30 @@
             </div>
 
             <div class="about-text slide-in-right">
-                <p data-i18n="about-text">Sou estudante de Engenharia de Software com foco em desenvolvimento back-end. Trabalho com Java e Spring Boot para construir APIs escaláveis, faço modelagem de banco de dados com PostgreSQL, escrevo testes com JUnit e Mockito e aplico práticas de DevOps com Docker. Também tenho interesse em IA generativa e soluções em cloud (AWS).</p>
+                <p data-i18n="about-text">Desenvolvedor back-end Java com projetos autorais em produção e atuação profissional em desenvolvimento e segurança da informação. Construo APIs REST completas com Spring Boot, Spring Security (JWT + API Key) e PostgreSQL, aplicando POO, SOLID e arquitetura em camadas. Tenho prática com programação reativa (WebFlux), testes automatizados (JUnit/Mockito), Docker, CI/CD (GitHub Actions) e front-end com React/TypeScript.</p>
                 <div class="skills">
                     <h3 data-i18n="skills-title">Tecnologias &amp; Ferramentas</h3>
                     <div class="skills-grid">
-                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Java 17/21</span>
                         <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Spring Security</span>
+                        <span class="skill-tag">WebFlux</span>
                         <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">SQL Server</span>
+                        <span class="skill-tag">MongoDB</span>
                         <span class="skill-tag">JUnit</span>
                         <span class="skill-tag">Mockito</span>
-                        <span class="skill-tag" data-i18n="skill-prompt-engineering">Engenharia de prompts</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Maven</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">TypeScript</span>
                         <span class="skill-tag">Git / GitHub</span>
                         <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">HTML / CSS / JS</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Maven</span>
+                        <span class="skill-tag">Scrum / Kanban</span>
+                        <span class="skill-tag" data-i18n="skill-clean-code">Clean Code</span>
+                        <span class="skill-tag" data-i18n="skill-prompt-engineering">Engenharia de prompts</span>
                     </div>
                 </div>
             </div>
@@ -264,7 +317,7 @@
                     <div class="service-face service-front">
                         <picture>
                             <source srcset="Otavio.webp" type="image/webp" />
-                            <img src="Otavio.png" alt="Otávio Guedes - Engenheiro de Software Back-end Java" class="service-photo" loading="lazy" width="500" height="670" />
+                            <img src="Otavio.webp" alt="Otávio Guedes - Engenheiro de Software Back-end Java" class="service-photo" loading="lazy" width="500" height="670" />
                         </picture>
                         <h3 data-i18n="service2-title">Sites &amp; Landing Pages</h3>
                         <p data-i18n="service2-desc">Sites e landing pages para micro e pequenas empresas sem presença online. Do zero ao ar, com identidade visual, responsividade total e hospedagem inclusa. Via Fio Web.</p>
@@ -294,14 +347,80 @@
     </div>
 </section>
 
+<!-- ═══════════════════════ EXPERIÊNCIA & FORMAÇÃO ═══════════════════════ -->
+<section id="experience" class="section section-experience">
+    <div class="container">
+        <h2 class="section-title animate-on-scroll" data-i18n="experience-title">Experiência</h2>
+
+        <div class="timeline">
+            <article class="timeline-item slide-in-left">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-card">
+                    <span class="timeline-badge" data-i18n="timeline-badge-current">Atual</span>
+                    <h3>Estagiário de Desenvolvimento</h3>
+                    <p class="timeline-org">NicolaSec — São Paulo/SP <span class="timeline-period">· Jul 2025 – o momento</span></p>
+                    <ul class="timeline-list">
+                        <li data-i18n="exp1-item1">Atuo em desenvolvimento com foco em Java, unindo código de aplicação a fundamentos de infraestrutura e segurança: servidores Windows/Ubuntu, SQL Server e integração via JDBC.</li>
+                        <li data-i18n="exp1-item2">Aplico conceitos de segurança da informação (IAM, PAM, GRC), com boas práticas alinhadas à ISO 27001 e LGPD, além de produzir conteúdo técnico sobre esses temas.</li>
+                        <li data-i18n="exp1-item3">Trabalho com scripting em bash e redes no suporte a rotinas de desenvolvimento e testes, usando ambientes virtualizados em VirtualBox.</li>
+                    </ul>
+                    <div class="timeline-tags"><span>Java</span><span>SQL Server</span><span>JDBC</span><span>Bash</span><span>IAM</span><span>ISO 27001</span></div>
+                </div>
+            </article>
+        </div>
+
+        <h3 class="edu-title" data-i18n="education-title">Formação</h3>
+        <div class="timeline">
+            <article class="timeline-item slide-in-right">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-card">
+                    <h3 data-i18n="edu-course">Bacharelado em Engenharia de Software</h3>
+                    <p class="timeline-org">Universidade São Judas Tadeu — São Paulo/SP <span class="timeline-period">· Jan 2025 – Dez 2028</span></p>
+                </div>
+            </article>
+
+            <article class="timeline-item slide-in-right">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-card">
+                    <h3 data-i18n="community-title">Comunidade</h3>
+                    <ul class="timeline-list">
+                        <li data-i18n="community-item1">Embaixador Universitário DIO, apoiando iniciativas de educação em tecnologia.</li>
+                        <li data-i18n="community-item2">Criador de conteúdo técnico na Brasil JUG (comunidade Java brasileira) e membro ativo do ecossistema Java.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="timeline-item slide-in-right">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-card">
+                    <h3 data-i18n="languages-title">Idiomas</h3>
+                    <ul class="timeline-list">
+                        <li data-i18n="languages-item">Inglês — leitura e escrita técnica avançada, conversação intermediária.</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
 <!-- ═══════════════════════ PROJETOS ═══════════════════════ -->
 <section id="projects" class="section">
     <div class="container">
         <h2 class="section-title animate-on-scroll" data-i18n="projects-title">Projetos</h2>
         <p class="section-subtitle" data-i18n="projects-subtitle">Seleção de projetos no meu GitHub — códigos e README disponíveis nos links.</p>
+        <div class="projects-toolbar">
+            <div class="projects-filter" role="group" aria-label="Filtrar projetos por tecnologia">
+                <button type="button" class="filter-btn is-active" data-filter="all" data-i18n="filter-all">Todos</button>
+                <button type="button" class="filter-btn" data-filter="spring" data-i18n="filter-spring">Spring Boot</button>
+                <button type="button" class="filter-btn" data-filter="java" data-i18n="filter-java">Java</button>
+                <button type="button" class="filter-btn" data-filter="ia" data-i18n="filter-ia">IA</button>
+                <button type="button" class="filter-btn" data-filter="frontend" data-i18n="filter-frontend">Front-end</button>
+            </div>
+            <p class="projects-filter-status" role="status" aria-live="polite"></p>
+        </div>
         <div class="projects-grid slide-in-up">
 
-            <article class="project-card">
+            <article class="project-card" data-tags="spring ia frontend java">
                 <div class="project-image"><picture><source srcset="images/projects/cvibe.webp" type="image/webp" /><img src="images/projects/cvibe.jpg" alt="CVibe - Aplicação Full-Stack de Otimização de Currículos para ATS com IA" loading="lazy" width="800" height="450" /></picture></div>
                 <div class="project-content">
                     <h3 data-i18n="project10-title">CVibe — Otimizador de Currículos para ATS com IA</h3>
@@ -313,7 +432,7 @@
                 </div>
             </article>
 
-            <article class="project-card kytrionyx-card">
+            <article class="project-card kytrionyx-card" data-tags="ia spring java">
                 <div class="project-image"><picture><source srcset="images/projects/kytrionyx-ai.webp" type="image/webp" /><img src="images/projects/kytrionyx-ai.jpg" alt="Kytrionyx AI - Interface Web Local para Modelos de IA via Ollama" loading="lazy" width="399" height="261" /></picture></div>
                 <div class="project-content">
                     <h3 data-i18n="project4-title">Kytrionyx AI</h3>
@@ -323,7 +442,7 @@
                 </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-tags="spring ia java">
                 <div class="project-image"><picture><source srcset="images/projects/commitgen.webp" type="image/webp" /><img src="images/projects/commitgen.jpg" alt="CommitGen AI - Gerador de Mensagens de Commit Semânticas com LLaMA e GroqCloud" loading="lazy" width="800" height="395" /></picture></div>
                 <div class="project-content">
                     <h3 data-i18n="project7-title">CommitGen AI — Gerador de Commits com IA</h3>
@@ -336,7 +455,7 @@
                 </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-tags="spring java">
                 <div class="project-image"><picture><source srcset="images/projects/gamify-api.webp" type="image/webp" /><img src="images/projects/gamify-api.jpg" alt="GamifyAPI - API de Gamificação Multi-tenant em Java e Spring Boot" loading="lazy" width="800" height="395" /></picture></div>
                 <div class="project-content">
                     <h3 data-i18n="project1-title">GamifyAPI</h3>
@@ -346,7 +465,7 @@
                 </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-tags="spring java">
                 <div class="project-image"><picture><source srcset="images/projects/api-amigo-secreto.webp" type="image/webp" /><img src="images/projects/api-amigo-secreto.jpg" alt="API Amigo Secreto 2.0 - API REST para Sorteio Digital com Spring Boot" loading="lazy" width="800" height="422" /></picture></div>
                 <div class="project-content">
                     <h3 data-i18n="project3-title">API Amigo Secreto 2.0</h3>
@@ -356,7 +475,7 @@
                 </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-tags="java">
                 <div class="project-image"><picture><source srcset="images/projects/roguelike-java.webp" type="image/webp" /><img src="images/projects/roguelike-java.jpg" alt="Roguelike Java - Jogo Clássico de Terminal com Masmorras Geradas Proceduralmente" loading="lazy" width="800" height="422" /></picture></div>
                 <div class="project-content">
                     <h3>Roguelike Java</h3>
@@ -366,7 +485,7 @@
                 </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-tags="java">
                 <div class="project-image"><picture><source srcset="images/projects/gerenciador-times.webp" type="image/webp" /><img src="images/projects/gerenciador-times.jpg" alt="Gerenciador de Times e Jogadores de Futebol com CLI em Java" loading="lazy" width="800" height="413" /></picture></div>
                 <div class="project-content">
                     <h3 data-i18n="project5-title">Gerenciador de Times e Jogadores</h3>
@@ -376,7 +495,7 @@
                 </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-tags="java">
                 <div class="project-image"><picture><source srcset="images/projects/galope-furioso.webp" type="image/webp" /><img src="images/projects/galope-furioso.jpg" alt="Galope Furioso - Simulador de Corrida de Cavalos no Terminal em Java" loading="lazy" width="800" height="395" /></picture></div>
                 <div class="project-content">
                     <h3 data-i18n="project8-title">Galope Furioso — Simulador de Corrida no Terminal</h3>
@@ -386,7 +505,7 @@
                 </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-tags="java">
                 <div class="project-image"><picture><source srcset="images/projects/otavios-bank.webp" type="image/webp" /><img src="images/projects/otavios-bank.jpg" alt="Otavio's Bank - Simulador de Sistema Bancário em Java POO com PIX" loading="lazy" width="800" height="422" /></picture></div>
                 <div class="project-content">
                     <h3 data-i18n="project6-title">Otavio's Bank — Sistema Bancário (Java POO)</h3>
@@ -449,8 +568,12 @@
 </main>
 
 <footer role="contentinfo">
-    <p data-i18n="footer-rights">&copy; 2025 Otávio Guedes. Todos os direitos reservados.</p>
+    <p data-i18n="footer-rights">&copy; 2026 Otávio Guedes. Todos os direitos reservados.</p>
 </footer>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Voltar ao topo" title="Voltar ao topo" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+</button>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 <script>
