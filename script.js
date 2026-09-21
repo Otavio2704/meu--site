@@ -108,6 +108,7 @@
    ============================================================ */
 document.addEventListener('DOMContentLoaded', function () {
   var inits = [
+    initPerformance,
     initScrollProgress,
     initCustomCursor,
     initSpotlight,
@@ -119,7 +120,10 @@ document.addEventListener('DOMContentLoaded', function () {
     initOrbitAnimations,
     initSmoothScroll,
     initContactForm,
-    initLanguageToggle
+    initLanguageToggle,
+    initProjectFilter,
+    initStatsCounters,
+    initBackToTop
   ];
 
   for (var i = 0; i < inits.length; i++) {
@@ -370,7 +374,12 @@ function initNavbar() {
   var hamburger = document.getElementById('hamburger');
   var navMenu   = document.getElementById('nav-menu');
   var navLinks  = document.querySelectorAll('.nav-link');
-  var sections  = document.querySelectorAll('section');
+  // Só acompanha seções que possuem link no menu (evita que seções
+  // sem link, como "Estatísticas", apaguem o destaque do item ativo)
+  var sections  = Array.prototype.filter.call(
+    document.querySelectorAll('section'),
+    function (s) { return document.querySelector('a[href="#' + s.id + '"]'); }
+  );
 
   if (!navbar || !hamburger || !navMenu) return;
 
@@ -693,6 +702,180 @@ function initContactForm() {
 }
 
 /* ============================================================
+   PERFORMANCE ADAPTATIVA — liga classe .low-power
+   automaticamente em hardware/rede/energia limitados.
+   Não remove a essência visual: cores, dourado, cards e
+   órbitas continuam; apenas os efeitos mais caros são
+   desligados (fundo animado, blur, trilha do cursor, tilt).
+   ============================================================ */
+function initPerformance() {
+  var html = document.getElementById('html-root') || document.documentElement;
+
+  function applyReduced(mq) {
+    if (mq && mq.matches) {
+      html.classList.add('pref-no-trans');
+    }
+  }
+
+  try {
+    if (window.matchMedia) {
+      var rmq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      applyReduced(rmq);
+      if (rmq.addEventListener) rmq.addEventListener('change', applyReduced);
+      else if (rmq.addListener) rmq.addListener(applyReduced);
+    }
+  } catch (e) { /* ignore */ }
+
+  // Computa uma única vez se o dispositivo é "fraco"
+  try {
+    var nav = window.navigator || {};
+    var lowPower = false;
+    if (nav.hardwareConcurrency && nav.hardwareConcurrency <= 4) lowPower = true;
+    if (nav.deviceMemory) {
+      var mem = parseFloat(nav.deviceMemory);
+      if (mem > 0 && mem <= 4) lowPower = true;
+    }
+    if (nav.connection) {
+      var c = nav.connection;
+      if (c.effectiveType && /^(slow-2g|2g|3g)$/.test(c.effectiveType)) lowPower = true;
+      if (c.saveData === true) lowPower = true;
+    }
+    if (lowPower) html.classList.add('low-power');
+  } catch (e) { /* ignore */ }
+
+  // Modo economia de energia (nível baixo sem carregar)
+  var getBattery = (navigator.getBattery && navigator.getBattery.bind(navigator));
+  if (typeof getBattery === 'function') {
+    try {
+      getBattery().then(function (b) {
+        if (b && b.level !== undefined && !b.charging && b.level < 0.2) {
+          html.classList.add('low-power');
+        }
+      }).catch(function () { /* ignore */ });
+    } catch (e) { /* ignore */ }
+  }
+}
+
+/* ============================================================
+   FILTRO DE PROJETOS — por tecnologia
+   ============================================================ */
+function initProjectFilter() {
+  var buttons = document.querySelectorAll('.filter-btn');
+  var cards   = document.querySelectorAll('.project-card');
+  var status  = document.querySelector('.projects-filter-status');
+  if (!buttons.length || !cards.length) return;
+
+  var labels = {
+    pt: { total: '{{n}} projetos', empty: 'Nenhum projeto encontrado.' },
+    en: { total: '{{n}} projects', empty: 'No projects found.' }
+  };
+  var currentFilter = 'all';
+
+  function apply(filter) {
+    currentFilter = filter;
+    var shown = 0;
+
+    cards.forEach(function (card) {
+      var tags  = (card.getAttribute('data-tags') || '').split(/\s+/);
+      var match = filter === 'all' || tags.indexOf(filter) !== -1;
+      card.classList.toggle('is-hidden', !match);
+      if (match && !card.classList.contains('is-visible')) card.classList.add('is-visible');
+      if (match) shown++;
+    });
+
+    if (status) {
+      var l = labels[storage.get('language', 'pt')] || labels.pt;
+      status.textContent = shown === 0 ? l.empty : l.total.replace('{{n}}', shown);
+    }
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      buttons.forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      apply(btn.getAttribute('data-filter') || 'all');
+    });
+  });
+
+  apply('all');
+}
+
+/* ============================================================
+   CONTADORES ANIMADOS (seção de estatísticas)
+   ============================================================ */
+function initStatsCounters() {
+  var nums = document.querySelectorAll('.stat-number[data-count-to]');
+  if (!nums.length) return;
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setFinal(el) {
+    var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+    var suffix = el.getAttribute('data-count-suffix') || '';
+    el.textContent = target + suffix;
+  }
+
+  if (reduced) { nums.forEach(setFinal); return; }
+
+  function animate(el) {
+    var target   = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+    var suffix   = el.getAttribute('data-count-suffix') || '';
+    var duration = 1200;
+    var start    = null;
+
+    function step(ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var observer = createObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        observer.unobserve(entry.target);
+        animate(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  nums.forEach(function (n) { observer.observe(n); });
+}
+
+/* ============================================================
+   BOTÃO "VOLTAR AO TOPO"
+   ============================================================ */
+function initBackToTop() {
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  var ticking = false;
+  function update() {
+    var y = window.scrollY || window.pageYOffset;
+    if (y > 500) btn.removeAttribute('hidden');
+    else btn.setAttribute('hidden', '');
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+
+  btn.addEventListener('click', function () {
+    if ('scrollBehavior' in document.documentElement.style) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  });
+
+  update();
+}
+
+/* ============================================================
    LANGUAGE TOGGLE (i18n)
    ============================================================ */
 function initLanguageToggle() {
@@ -704,8 +887,31 @@ function initLanguageToggle() {
       'nav-home': 'Início',
       'nav-about': 'Sobre',
       'nav-services': 'Serviços',
+      'nav-experience': 'Experiência',
       'nav-projects': 'Projetos',
       'nav-contact': 'Contato',
+      'stat-projects': 'Projetos publicados',
+      'stat-technologies': 'Tecnologias no dia a dia',
+      'stat-years': 'Anos codando',
+      'stat-focus': 'Foco em back-end',
+      'experience-title': 'Experiência',
+      'timeline-badge-current': 'Atual',
+      'exp1-item1': 'Atuei em desenvolvimento com foco em Java, unindo código de aplicação a fundamentos de infraestrutura e segurança: servidores Windows/Ubuntu, SQL Server e integração via JDBC.',
+      'exp1-item2': 'Apliquei conceitos de segurança da informação (IAM, PAM, GRC), com boas práticas alinhadas à ISO 27001 e LGPD, além de produzir conteúdo técnico sobre esses temas.',
+      'exp1-item3': 'Trabalhei com scripting em bash e redes no suporte a rotinas de desenvolvimento e testes, usando ambientes virtualizados em VirtualBox.',
+      'education-title': 'Formação',
+      'edu-course': 'Bacharelado em Engenharia de Software',
+      'community-title': 'Comunidade',
+      'community-item1': 'Embaixador Universitário DIO, apoiando iniciativas de educação em tecnologia.',
+      'community-item2': 'Criador de conteúdo técnico na Brasil JUG (comunidade Java brasileira) e membro ativo do ecossistema Java.',
+      'languages-title': 'Idiomas',
+      'languages-item': 'Inglês — leitura e escrita técnica avançada, conversação intermediária.',
+      'filter-all': 'Todos',
+      'filter-spring': 'Spring Boot',
+      'filter-java': 'Java',
+      'filter-ia': 'IA',
+      'filter-frontend': 'Front-end',
+      'skill-clean-code': 'Clean Code',
       'services-title': 'Serviços',
       'services-subtitle': 'O que eu entrego — código limpo, prazo combinado e comunicação direta.',
       'service1-title': 'Criação & Manutenção de APIs REST',
@@ -725,7 +931,7 @@ function initLanguageToggle() {
       'download-cv': 'Baixar CV',
       'view-projects': 'Ver projetos',
       'about-title': 'Sobre',
-      'about-text': 'Sou estudante de Engenharia de Software com foco em desenvolvimento Back-end. Trabalho com Java e Spring Boot para construir APIs escaláveis, faço modelagem de banco de dados (PostgreSQL), escrevo testes com JUnit e Mockito e tenho interesse em IA generativa e cloud (AWS).',
+      'about-text': 'Desenvolvedor back-end Java com projetos autorais em produção e atuação profissional em desenvolvimento e segurança da informação. Construo APIs REST completas com Spring Boot, Spring Security (JWT + API Key) e PostgreSQL, aplicando POO, SOLID e arquitetura em camadas. Tenho prática com programação reativa (WebFlux), testes automatizados (JUnit/Mockito), Docker, CI/CD (GitHub Actions) e front-end com React/TypeScript.',
       'skills-title': 'Tecnologias & Ferramentas',
       'skill-prompt-engineering': 'Engenharia de prompts',
       'code-name': 'nome',
@@ -754,6 +960,7 @@ function initLanguageToggle() {
       'project8-desc': 'Simulador de corrida de cavalos no terminal feito em Java. Com animações em tempo real, contagem regressiva, pódio completo e suporte a múltiplas corridas — tudo via linha de comando.',
       'project9-title': 'Provisionamento Automático de Servidor Web',
       'project9-desc': 'Scripts Shell que automatizam com um único comando o provisionamento completo de um servidor Apache2: firewall UFW, cabeçalhos de segurança, página responsiva, monitoramento e desinstalação — Infraestrutura como Código.',
+      'project10-title': 'CVibe — Otimizador de Currículos para ATS com IA',
       'project10-desc': 'Aplicação full-stack para otimizar currículos para sistemas ATS, com backend em Java 17, Spring Boot e IA generativa via NVIDIA NIM.',
       'contact-title': 'Contato',
       'contact-text': 'Estou aberto a oportunidades e colaborações. Pode me encontrar no GitHub ou LinkedIn — ou enviar uma mensagem por aqui.',
@@ -771,8 +978,31 @@ function initLanguageToggle() {
       'nav-home': 'Home',
       'nav-about': 'About',
       'nav-services': 'Services',
+      'nav-experience': 'Experience',
       'nav-projects': 'Projects',
       'nav-contact': 'Contact',
+      'stat-projects': 'Published projects',
+      'stat-technologies': 'Technologies I use daily',
+      'stat-years': 'Years coding',
+      'stat-focus': 'Back-end focused',
+      'experience-title': 'Experience',
+      'timeline-badge-current': 'Current',
+      'exp1-item1': 'I worked on Java-focused development, connecting application code with infrastructure and security fundamentals: Windows/Ubuntu servers, SQL Server and JDBC integration.',
+      'exp1-item2': 'I applied information security concepts (IAM, PAM, GRC), following best practices aligned with ISO 27001 and LGPD, while also producing technical content on these topics.',
+      'exp1-item3': 'I worked with bash scripting and networking to support development and testing routines, using virtualized environments in VirtualBox.',
+      'education-title': 'Education',
+      'edu-course': 'Bachelor\'s Degree in Software Engineering',
+      'community-title': 'Community',
+      'community-item1': 'DIO University Ambassador, supporting technology education initiatives.',
+      'community-item2': 'Technical content creator at Brasil JUG (Brazilian Java community) and active member of the Java ecosystem.',
+      'languages-title': 'Languages',
+      'languages-item': 'English — advanced technical reading and writing, intermediate conversation.',
+      'filter-all': 'All',
+      'filter-spring': 'Spring Boot',
+      'filter-java': 'Java',
+      'filter-ia': 'AI',
+      'filter-frontend': 'Front-end',
+      'skill-clean-code': 'Clean Code',
       'services-title': 'Services',
       'services-subtitle': 'What I deliver — clean code, agreed deadlines and direct communication.',
       'service1-title': 'REST API Development & Maintenance',
@@ -792,7 +1022,7 @@ function initLanguageToggle() {
       'download-cv': 'Download CV',
       'view-projects': 'View Projects',
       'about-title': 'About',
-      'about-text': "I'm a Software Engineering student focused on Back-end development. I work with Java and Spring Boot to build scalable APIs, design databases (PostgreSQL), write tests with JUnit and Mockito, and have interest in generative AI and cloud (AWS).",
+      'about-text': "I'm a Java back-end developer with original projects in production and professional experience in development and information security. I build complete REST APIs with Spring Boot, Spring Security (JWT + API Key) and PostgreSQL, applying OOP, SOLID and layered architecture. I have hands-on practice with reactive programming (WebFlux), automated testing (JUnit/Mockito), Docker, CI/CD (GitHub Actions) and React/TypeScript front-ends.",
       'skills-title': 'Technologies & Tools',
       'skill-prompt-engineering': 'Prompt Engineering',
       'code-name': 'name',
@@ -821,6 +1051,7 @@ function initLanguageToggle() {
       'project8-desc': 'Terminal horse racing simulator built in Java. Features real-time animations, animated countdown, full podium display and support for multiple races — all via command line.',
       'project9-title': 'Automated Web Server Provisioning',
       'project9-desc': 'Shell scripts that fully automate web server provisioning with a single command: Apache2, UFW firewall, security headers, responsive page, monitoring and clean uninstall — Infrastructure as Code.',
+      'project10-title': 'CVibe — ATS Resume Optimizer with AI',
       'project10-desc': 'Full-stack application to optimize resumes for Applicant Tracking Systems (ATS), with a Java 17 backend, Spring Boot, and generative AI powered by NVIDIA NIM.',
       'contact-title': 'Contact',
       'contact-text': "I'm open to opportunities and collaborations. You can find me on GitHub or LinkedIn — or send a message here.",
