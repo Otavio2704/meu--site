@@ -446,29 +446,41 @@ main { width: 100%; overflow-x: hidden; }
 /* ── Solar System container ── */
 .hero-solar-system {
   position: relative;
-  width: 600px; height: 600px;
+  /* Tamanho fluido: --sys é a única fonte de verdade da geometria.
+     Anéis e planetas derivam dele por frações, então ficam alinhados
+     em QUALQUER largura (nunca dessincronizam ao redimensionar). */
+  --sys: clamp(260px, 34vw, 600px);
+  width: var(--sys); height: var(--sys);
+  /* Raio de cada órbita (distância do centro até o ícone) */
+  --r1: calc(var(--sys) * 0.25);
+  --r2: calc(var(--sys) * 0.30);
+  --r3: calc(var(--sys) * 0.35);
+  --r4: calc(var(--sys) * 0.40);
+  --r5: calc(var(--sys) * 0.45);
+  --r6: calc(var(--sys) * 0.50);
   flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   animation: heroEnter 1.4s var(--ease-out-expo) 0.2s both;
   pointer-events: none;
 }
 
-/* Orbit rings (decorative) */
+/* Orbit rings (decorative) — tamanho deriva de --sys no container */
 .orbit-ring {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%,-50%); border-radius: 50%;
   border: 1px solid rgba(229,193,88,0.06); pointer-events: none;
 }
-.orbit-ring-1 { width: 300px; height: 300px; border-color: rgba(229,193,88,0.06); }
-.orbit-ring-2 { width: 360px; height: 360px; border-color: rgba(229,193,88,0.05); }
-.orbit-ring-3 { width: 420px; height: 420px; border-color: rgba(229,193,88,0.04); }
-.orbit-ring-4 { width: 480px; height: 480px; border-color: rgba(229,193,88,0.03); }
-.orbit-ring-5 { width: 540px; height: 540px; border-color: rgba(229,193,88,0.02); }
-.orbit-ring-6 { width: 600px; height: 600px; border-color: rgba(229,193,88,0.01); }
+.orbit-ring-1 { width: calc(var(--sys) * 0.50); height: calc(var(--sys) * 0.50); border-color: rgba(229,193,88,0.06); }
+.orbit-ring-2 { width: calc(var(--sys) * 0.60); height: calc(var(--sys) * 0.60); border-color: rgba(229,193,88,0.05); }
+.orbit-ring-3 { width: calc(var(--sys) * 0.70); height: calc(var(--sys) * 0.70); border-color: rgba(229,193,88,0.04); }
+.orbit-ring-4 { width: calc(var(--sys) * 0.80); height: calc(var(--sys) * 0.80); border-color: rgba(229,193,88,0.03); }
+.orbit-ring-5 { width: calc(var(--sys) * 0.90); height: calc(var(--sys) * 0.90); border-color: rgba(229,193,88,0.02); }
+.orbit-ring-6 { width: var(--sys); height: var(--sys); border-color: rgba(229,193,88,0.01); }
 
-/* Sun (photo) */
+/* Sun (photo) — tamanho fluido derivado de --sys (nunca menor que 52px) */
 .sun-core {
-  width: clamp(130px, 14vw, 160px); height: clamp(130px, 14vw, 160px);
+  width: clamp(52px, calc(var(--sys) * 0.22), 160px);
+  height: clamp(52px, calc(var(--sys) * 0.22), 160px);
   border-radius: 50%; position: absolute; top: 50%; left: 50%;
   transform: translate(-50%,-50%); border: 2px solid var(--accent);
   box-shadow: 0 0 30px rgba(229,193,88,0.3), 0 0 60px rgba(229,193,88,0.1), inset 0 0 20px rgba(229,193,88,0.2);
@@ -488,7 +500,7 @@ main { width: 100%; overflow-x: hidden; }
   100% { box-shadow: 0 0 40px rgba(229,193,88,0.4), 0 0 75px rgba(229,193,88,0.15), inset 0 0 25px rgba(229,193,88,0.25); }
 }
 
-/* Orbit groups — spin containers */
+/* Orbit groups — gira o anel de ícone inteiro */
 .orbit-group {
   position: absolute; top: 50%; left: 50%; width: 0; height: 0;
   pointer-events: none;
@@ -501,18 +513,19 @@ main { width: 100%; overflow-x: hidden; }
 .orbit-group-6 { animation: groupSpin 52s linear infinite; }
 @keyframes groupSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-/* Tech icon bubbles */
+/* Tech icon bubbles — tamanho fluido derivado de --sys (contínuo, sem saltos) */
 .tech-icon {
+  --icon: clamp(24px, calc(var(--sys) * 0.085), 56px);
   position: absolute;
-  width: clamp(48px, 6vw, 56px); height: clamp(48px, 6vw, 56px);
+  width: var(--icon); height: var(--icon);
   background: rgba(229,193,88,0.08); border: 1.5px solid rgba(229,193,88,0.45); border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  padding: clamp(8px, 1.5vw, 10px); cursor: none;
+  padding: clamp(3px, calc(var(--icon) * 0.16), 10px); cursor: none;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 15px rgba(229,193,88,0.15), inset 0 0 10px rgba(229,193,88,0.1);
   backdrop-filter: blur(8px);
   transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease, scale 0.3s var(--ease-spring);
-  margin-left: calc(clamp(48px, 6vw, 56px) / -2);
-  margin-top:  calc(clamp(48px, 6vw, 56px) / -2);
+  margin-left: calc(var(--icon) / -2);
+  margin-top:  calc(var(--icon) / -2);
   pointer-events: auto;
   scale: 1;
 }
@@ -534,20 +547,33 @@ main { width: 100%; overflow-x: hidden; }
   animation-play-state: paused !important;
 }
 
-/* Planet positions inside each orbit group */
-.orbit-group-1 .planet[data-orbit="1"] { transform: translateX(150px); animation: counterSpin150 22s linear infinite; }
-.orbit-group-2 .planet[data-orbit="2"] { transform: translateX(180px); animation: counterSpin180 28s linear infinite; }
-.orbit-group-3 .planet[data-orbit="3"] { transform: translateX(210px); animation: counterSpin210 34s linear infinite; }
-.orbit-group-4 .planet[data-orbit="4"] { transform: translateX(240px); animation: counterSpin240 40s linear infinite; }
-.orbit-group-5 .planet[data-orbit="5"] { transform: translateX(270px); animation: counterSpin270 46s linear infinite; }
-.orbit-group-6 .planet[data-orbit="6"] { transform: translateX(300px); animation: counterSpin300 52s linear infinite; }
+/* Planet positions inside each orbit group.
+   O deslocamento do centro até a órbita usa a propriedade `translate`
+   (estática e fluida, deriva de --sys) — separada da rotação, que fica
+   no `transform` animado. Assim:
+     • --r acompanha QUALQUER largura instantaneamente (sem reiniciar);
+     • o grupo gira +θ, o planeta contra-gira -θ no mesmo tempo → símbolo
+       de pé, girando, em qualquer tamanho de janela. */
+.orbit-group .planet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  translate: var(--r) 0;
+  animation: counterSpin var(--dur) linear infinite;
+}
+.orbit-group-1 .planet { --r: var(--r1); --dur: 22s; }
+.orbit-group-2 .planet { --r: var(--r2); --dur: 28s; }
+.orbit-group-3 .planet { --r: var(--r3); --dur: 34s; }
+.orbit-group-4 .planet { --r: var(--r4); --dur: 40s; }
+.orbit-group-5 .planet { --r: var(--r5); --dur: 46s; }
+.orbit-group-6 .planet { --r: var(--r6); --dur: 52s; }
 
-@keyframes counterSpin150 { from { transform: translateX(150px) rotate(0deg); } to { transform: translateX(150px) rotate(-360deg); } }
-@keyframes counterSpin180 { from { transform: translateX(180px) rotate(0deg); } to { transform: translateX(180px) rotate(-360deg); } }
-@keyframes counterSpin210 { from { transform: translateX(210px) rotate(0deg); } to { transform: translateX(210px) rotate(-360deg); } }
-@keyframes counterSpin240 { from { transform: translateX(240px) rotate(0deg); } to { transform: translateX(240px) rotate(-360deg); } }
-@keyframes counterSpin270 { from { transform: translateX(270px) rotate(0deg); } to { transform: translateX(270px) rotate(-360deg); } }
-@keyframes counterSpin300 { from { transform: translateX(300px) rotate(0deg); } to { transform: translateX(300px) rotate(-360deg); } }
+/* Contra-rotação universal (igual para todo raio/tela, só muda a duração
+   via --dur) — nunca troca de keyframe ao redimensionar. */
+@keyframes counterSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
 
 /* ============================================
    BUTTONS
@@ -1089,54 +1115,11 @@ footer {
 @media (max-width: 1200px) {
   .container { padding: 0 24px; }
   .hero { column-gap: 80px; }
-  .hero-solar-system { width: 440px; height: 440px; }
-  .orbit-ring-1 { width: 220px; height: 220px; }
-  .orbit-ring-2 { width: 264px; height: 264px; }
-  .orbit-ring-3 { width: 308px; height: 308px; }
-  .orbit-ring-4 { width: 352px; height: 352px; }
-  .orbit-ring-5 { width: 396px; height: 396px; }
-  .orbit-ring-6 { width: 440px; height: 440px; }
-
-  .orbit-group-1 .planet[data-orbit="1"] { transform: translateX(110px) !important; animation: counterSpin1200_1 22s linear infinite !important; }
-  .orbit-group-2 .planet[data-orbit="2"] { transform: translateX(132px) !important; animation: counterSpin1200_2 28s linear infinite !important; }
-  .orbit-group-3 .planet[data-orbit="3"] { transform: translateX(154px) !important; animation: counterSpin1200_3 34s linear infinite !important; }
-  .orbit-group-4 .planet[data-orbit="4"] { transform: translateX(176px) !important; animation: counterSpin1200_4 40s linear infinite !important; }
-  .orbit-group-5 .planet[data-orbit="5"] { transform: translateX(198px) !important; animation: counterSpin1200_5 46s linear infinite !important; }
-  .orbit-group-6 .planet[data-orbit="6"] { transform: translateX(220px) !important; animation: counterSpin1200_6 52s linear infinite !important; }
-
-  @keyframes counterSpin1200_1 { from { transform: translateX(110px) rotate(0deg); } to { transform: translateX(110px) rotate(-360deg); } }
-  @keyframes counterSpin1200_2 { from { transform: translateX(132px) rotate(0deg); } to { transform: translateX(132px) rotate(-360deg); } }
-  @keyframes counterSpin1200_3 { from { transform: translateX(154px) rotate(0deg); } to { transform: translateX(154px) rotate(-360deg); } }
-  @keyframes counterSpin1200_4 { from { transform: translateX(176px) rotate(0deg); } to { transform: translateX(176px) rotate(-360deg); } }
-  @keyframes counterSpin1200_5 { from { transform: translateX(198px) rotate(0deg); } to { transform: translateX(198px) rotate(-360deg); } }
-  @keyframes counterSpin1200_6 { from { transform: translateX(220px) rotate(0deg); } to { transform: translateX(220px) rotate(-360deg); } }
 }
 
 @media (max-width: 1024px) {
   .section { padding: 80px 0; }
   .hero { padding: 100px 24px 50px; column-gap: 60px; row-gap: 30px; }
-  .hero-solar-system { width: 360px; height: 360px; flex-shrink: 0; }
-  .orbit-ring-1 { width: 180px; height: 180px; }
-  .orbit-ring-2 { width: 216px; height: 216px; }
-  .orbit-ring-3 { width: 252px; height: 252px; }
-  .orbit-ring-4 { width: 288px; height: 288px; }
-  .orbit-ring-5 { width: 324px; height: 324px; }
-  .orbit-ring-6 { width: 360px; height: 360px; }
-
-  .orbit-group-1 .planet[data-orbit="1"] { transform: translateX(90px) !important; animation: counterSpin1024_1 22s linear infinite !important; }
-  .orbit-group-2 .planet[data-orbit="2"] { transform: translateX(108px) !important; animation: counterSpin1024_2 28s linear infinite !important; }
-  .orbit-group-3 .planet[data-orbit="3"] { transform: translateX(126px) !important; animation: counterSpin1024_3 34s linear infinite !important; }
-  .orbit-group-4 .planet[data-orbit="4"] { transform: translateX(144px) !important; animation: counterSpin1024_4 40s linear infinite !important; }
-  .orbit-group-5 .planet[data-orbit="5"] { transform: translateX(162px) !important; animation: counterSpin1024_5 46s linear infinite !important; }
-  .orbit-group-6 .planet[data-orbit="6"] { transform: translateX(180px) !important; animation: counterSpin1024_6 52s linear infinite !important; }
-
-  @keyframes counterSpin1024_1 { from { transform: translateX(90px) rotate(0deg); } to { transform: translateX(90px) rotate(-360deg); } }
-  @keyframes counterSpin1024_2 { from { transform: translateX(108px) rotate(0deg); } to { transform: translateX(108px) rotate(-360deg); } }
-  @keyframes counterSpin1024_3 { from { transform: translateX(126px) rotate(0deg); } to { transform: translateX(126px) rotate(-360deg); } }
-  @keyframes counterSpin1024_4 { from { transform: translateX(144px) rotate(0deg); } to { transform: translateX(144px) rotate(-360deg); } }
-  @keyframes counterSpin1024_5 { from { transform: translateX(162px) rotate(0deg); } to { transform: translateX(162px) rotate(-360deg); } }
-  @keyframes counterSpin1024_6 { from { transform: translateX(180px) rotate(0deg); } to { transform: translateX(180px) rotate(-360deg); } }
-
   .hero-panel { max-width: 300px; }
   .about-content { grid-template-columns: 1fr; gap: 40px; }
   .about-visual { order: -1; width: 100%; box-sizing: border-box; }
@@ -1212,36 +1195,12 @@ footer {
   
   .hero-solar-system {
     order: -1;
-    width: 160px;
-    height: 160px;
+    --sys: clamp(200px, 58vw, 330px);
     margin: 0 auto;
     position: relative;
     z-index: 1;
     pointer-events: auto;
   }
-  .orbit-ring-1 { width: 80px; height: 80px; }
-  .orbit-ring-2 { width: 96px; height: 96px; }
-  .orbit-ring-3 { width: 112px; height: 112px; }
-  .orbit-ring-4 { width: 128px; height: 128px; }
-  .orbit-ring-5 { width: 144px; height: 144px; }
-  .orbit-ring-6 { width: 160px; height: 160px; }
-  
-  .orbit-group-1 .planet[data-orbit="1"] { transform: translateX(40px) !important; animation: counterSpinMob1 22s linear infinite !important; }
-  .orbit-group-2 .planet[data-orbit="2"] { transform: translateX(48px) !important; animation: counterSpinMob2 28s linear infinite !important; }
-  .orbit-group-3 .planet[data-orbit="3"] { transform: translateX(56px) !important; animation: counterSpinMob3 34s linear infinite !important; }
-  .orbit-group-4 .planet[data-orbit="4"] { transform: translateX(64px) !important; animation: counterSpinMob4 40s linear infinite !important; }
-  .orbit-group-5 .planet[data-orbit="5"] { transform: translateX(72px) !important; animation: counterSpinMob5 46s linear infinite !important; }
-  .orbit-group-6 .planet[data-orbit="6"] { transform: translateX(80px) !important; animation: counterSpinMob6 52s linear infinite !important; }
-
-  @keyframes counterSpinMob1 { from { transform: translateX(40px) rotate(0deg); } to { transform: translateX(40px) rotate(-360deg); } }
-  @keyframes counterSpinMob2 { from { transform: translateX(48px) rotate(0deg); } to { transform: translateX(48px) rotate(-360deg); } }
-  @keyframes counterSpinMob3 { from { transform: translateX(56px) rotate(0deg); } to { transform: translateX(56px) rotate(-360deg); } }
-  @keyframes counterSpinMob4 { from { transform: translateX(64px) rotate(0deg); } to { transform: translateX(64px) rotate(-360deg); } }
-  @keyframes counterSpinMob5 { from { transform: translateX(72px) rotate(0deg); } to { transform: translateX(72px) rotate(-360deg); } }
-  @keyframes counterSpinMob6 { from { transform: translateX(80px) rotate(0deg); } to { transform: translateX(80px) rotate(-360deg); } }
-
-  .tech-icon { width: 26px !important; height: 26px !important; margin-left: -13px !important; margin-top: -13px !important; padding: 4px !important; }
-  .sun-core { width: 56px !important; height: 56px !important; }
   
   .scroll-indicator { order: 99; }
 
@@ -1285,31 +1244,6 @@ footer {
   .hero-title { font-size: clamp(1.3rem, 4.5vw, 1.8rem); }
   .hero-quote { font-size: 0.85rem; }
 
-  .hero-solar-system { width: 180px; height: 180px; }
-  .orbit-ring-1 { width: 90px; height: 90px; }
-  .orbit-ring-2 { width: 108px; height: 108px; }
-  .orbit-ring-3 { width: 126px; height: 126px; }
-  .orbit-ring-4 { width: 144px; height: 144px; }
-  .orbit-ring-5 { width: 162px; height: 162px; }
-  .orbit-ring-6 { width: 180px; height: 180px; }
-
-  .orbit-group-1 .planet[data-orbit="1"] { transform: translateX(45px) !important; animation: counterSpin480_1 22s linear infinite !important; }
-  .orbit-group-2 .planet[data-orbit="2"] { transform: translateX(54px) !important; animation: counterSpin480_2 28s linear infinite !important; }
-  .orbit-group-3 .planet[data-orbit="3"] { transform: translateX(63px) !important; animation: counterSpin480_3 34s linear infinite !important; }
-  .orbit-group-4 .planet[data-orbit="4"] { transform: translateX(72px) !important; animation: counterSpin480_4 40s linear infinite !important; }
-  .orbit-group-5 .planet[data-orbit="5"] { transform: translateX(81px) !important; animation: counterSpin480_5 46s linear infinite !important; }
-  .orbit-group-6 .planet[data-orbit="6"] { transform: translateX(90px) !important; animation: counterSpin480_6 52s linear infinite !important; }
-
-  @keyframes counterSpin480_1 { from { transform: translateX(45px) rotate(0deg); } to { transform: translateX(45px) rotate(-360deg); } }
-  @keyframes counterSpin480_2 { from { transform: translateX(54px) rotate(0deg); } to { transform: translateX(54px) rotate(-360deg); } }
-  @keyframes counterSpin480_3 { from { transform: translateX(63px) rotate(0deg); } to { transform: translateX(63px) rotate(-360deg); } }
-  @keyframes counterSpin480_4 { from { transform: translateX(72px) rotate(0deg); } to { transform: translateX(72px) rotate(-360deg); } }
-  @keyframes counterSpin480_5 { from { transform: translateX(81px) rotate(0deg); } to { transform: translateX(81px) rotate(-360deg); } }
-  @keyframes counterSpin480_6 { from { transform: translateX(90px) rotate(0deg); } to { transform: translateX(90px) rotate(-360deg); } }
-
-  .tech-icon { width: 28px !important; height: 28px !important; margin-left: -14px !important; margin-top: -14px !important; padding: 4px !important; }
-  .sun-core { width: 64px !important; height: 64px !important; }
-
   .hero-buttons { flex-direction: column; width: 100%; gap: 10px; }
   .hero-buttons .btn { width: 100%; padding: 10px 16px; font-size: 0.85rem; }
   .hero-social.small { justify-content: center; gap: 6px; }
@@ -1352,29 +1286,6 @@ footer {
   .hero-title { font-size: 1.15rem; line-height: 1.2; }
   .hero-quote { font-size: 0.8rem; line-height: 1.5; }
 
-  .hero-solar-system { width: 140px; height: 140px; }
-  .orbit-ring-1 { width: 70px; height: 70px; }
-  .orbit-ring-2 { width: 84px; height: 84px; }
-  .orbit-ring-3 { width: 98px; height: 98px; }
-  .orbit-ring-4 { width: 112px; height: 112px; }
-  .orbit-ring-5 { width: 126px; height: 126px; }
-  .orbit-ring-6 { width: 140px; height: 140px; }
-  .sun-core { width: 52px !important; height: 52px !important; }
-
-  .orbit-group-1 .planet[data-orbit="1"] { transform: translateX(35px) !important; animation: counterSpin360_1 22s linear infinite !important; }
-  .orbit-group-2 .planet[data-orbit="2"] { transform: translateX(42px) !important; animation: counterSpin360_2 28s linear infinite !important; }
-  .orbit-group-3 .planet[data-orbit="3"] { transform: translateX(49px) !important; animation: counterSpin360_3 34s linear infinite !important; }
-  .orbit-group-4 .planet[data-orbit="4"] { transform: translateX(56px) !important; animation: counterSpin360_4 40s linear infinite !important; }
-  .orbit-group-5 .planet[data-orbit="5"] { transform: translateX(63px) !important; animation: counterSpin360_5 46s linear infinite !important; }
-  .orbit-group-6 .planet[data-orbit="6"] { transform: translateX(70px) !important; animation: counterSpin360_6 52s linear infinite !important; }
-
-  @keyframes counterSpin360_1 { from { transform: translateX(35px) rotate(0deg); } to { transform: translateX(35px) rotate(-360deg); } }
-  @keyframes counterSpin360_2 { from { transform: translateX(42px) rotate(0deg); } to { transform: translateX(42px) rotate(-360deg); } }
-  @keyframes counterSpin360_3 { from { transform: translateX(49px) rotate(0deg); } to { transform: translateX(49px) rotate(-360deg); } }
-  @keyframes counterSpin360_4 { from { transform: translateX(56px) rotate(0deg); } to { transform: translateX(56px) rotate(-360deg); } }
-  @keyframes counterSpin360_5 { from { transform: translateX(63px) rotate(0deg); } to { transform: translateX(63px) rotate(-360deg); } }
-  @keyframes counterSpin360_6 { from { transform: translateX(70px) rotate(0deg); } to { transform: translateX(70px) rotate(-360deg); } }
-
   .service-face { padding: 22px 16px; }
   .service-face h3 { font-size: 1rem; }
   .service-photo { width: 64px; height: 64px; }
@@ -1385,8 +1296,7 @@ footer {
 @media (max-height: 600px) and (orientation: landscape) {
   .hero { min-height: auto; padding: 90px 40px 30px; }
   .nav-menu { height: auto; max-height: calc(100vh - 64px); }
-  .hero-solar-system { width: 200px; height: 200px; }
-  .sun-core { width: 80px !important; height: 80px !important; }
+  .hero-solar-system { --sys: clamp(180px, 26vh, 240px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
